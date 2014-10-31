@@ -1,21 +1,19 @@
 # -*- coding: UTF-8 -*-
-
-# Import from the Standard Library
+"""
+Paste template for DjangoCMS 3.x, install all needed stuff plus some optionnal apps
+"""
 from os import getcwd, symlink
 from os.path import dirname, join
 from random import choice
 from subprocess import Popen, PIPE
 from sys import modules, exit
 
-# Import from PasteScript
 from paste.script.templates import Template, var
 from __init__ import __version__ as template_version
 
 class Caller(object):
-
     def __init__(self, cwd=None):
         self.cwd = cwd
-
 
     def __call__(self, *args):
         popen = Popen(args, stdout=PIPE, stderr=PIPE, cwd=self.cwd)
@@ -27,23 +25,29 @@ class Caller(object):
         return out
 
 
-
 class Django(Template):
-
-    summary = "DjangoCMS 3.x project"
+    """
+    Paste template
+    """
+    # Relative path to the directory containing all stuff to install
     _template_dir = 'django_buildout'
+    # Summary as it will be displayed with "--list-templates" paster argument
+    summary = "DjangoCMS 3.x project"
+    # Questions to ask to enable some mods/options
     vars = [
-        var('admin_tools', 'Enable admin_tools (yes/no)', default='yes'),
+        var('admin_style', 'Enable djangocms_admin_style (yes/no)', default='yes'),
         var('accounts', 'Enable accounts registration (yes/no)', default='yes'),
         var('contact_form', 'Enable contact_form (yes/no)', default='yes'),
         var('porticus', 'Enable porticus (yes/no)', default='yes'),
         var('site_metas', 'Enable site_metas (yes/no)', default='yes'),
         var('slideshows', 'Enable Slideshows (yes/no)', default='yes'),
         var('zinnia', 'Enable Zinnia (yes/no)', default='yes'),
-        ]
-
+    ]
 
     def pre(self, command, output_dir, kw):
+        """
+        Prepare some context before install
+        """
         # secret_key
         chars = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
         kw['secret_key'] = ''.join([ choice(chars) for i in range(50) ])
@@ -54,12 +58,14 @@ class Django(Template):
 
 
     def post(self, command, output_dir, vars):
+        """
+        Do some jobs after install
+        """
         if command.simulate:
             return
 
         # 1. Mods
-        mods = [
-            var.name for var in self.vars if vars[var.name].lower() == 'yes' ]
+        mods = [var.name for var in self.vars if vars[var.name].lower() == 'yes']
         mods = set(mods)
 
         # Required
@@ -70,22 +76,23 @@ class Django(Template):
         mods.add('cms')
         mods.add('filebrowser') # Used in djangocms and zinnia
         mods.add('ckeditor')     # Used in djangocms and zinnia
-        mods.add('codemirror')   # Used in snippet cms plugin
+        #mods.add('codemirror')   # Used in snippet cms plugin
         
         # Conditionnal dependancies
         if 'contact_form' in mods:
             mods.add('crispy_forms')
             mods.add('recaptcha')
 
-        # Enable
+        # Enable all selected mods
         project = join(getcwd(), vars['project'], 'project')
         for name in mods:
             symlink(
                 join('..', 'mods_available', name),
-                join(project, 'mods_enabled', name))
+                join(project, 'mods_enabled', name)
+            )
 
         # 2. Git initialization
         call = Caller(vars['project'])
-        call('git', 'init', '.')                    # init
-        call('git', 'add', '.')                     # add
-        call('git', 'commit', '-m', 'First commit') # commit
+        call('git', 'init', '.')
+        call('git', 'add', '.')
+        call('git', 'commit', '-m', 'First commit')
