@@ -1,0 +1,66 @@
+/*
+ * CSS for the TinyMCE content
+ * Deprecated, but if needed rename it without the underscore prefix "_" to 
+ * compile it as a CSS file
+ */
+@import "settings";
+
+// ----------------------------------------
+// Import specific parts of Foundation by commenting the import "foundation"
+// and uncommenting what you want below. You must uncomment the following if customizing
+@import "compass/css3";
+@import "foundation/settings";
+@import "foundation/functions/all";
+
+// Control which mixins you have access too
+@import "foundation/mixins/clearfix";
+@import "foundation/mixins/css-triangle";
+@import "foundation/mixins/font-size";
+
+// Must include next two for semantic grid to work
+@import "foundation/mixins/respond-to";
+@import "foundation/mixins/semantic-grid";
+
+@import "modular-scale";
+@import "foundation/common/globals";
+
+// Must include the grid for any responsiveness
+@import "foundation/components/grid";
+
+// Control which common styles get compiled
+@import "foundation/common/typography";
+
+// Control which components you get if customizing
+@import "foundation/components/modules/buttons";
+@import "foundation/components/modules/tabs";
+@import "foundation/components/modules/ui";
+
+// Media Queries Overrides
+@import "foundation/components/modules/mqueries";
+
+@import "components/font-awesome";
+@import "mixins/base";
+@import "common/resolutions";
+@import "common/addons";
+
+/* 
+ * Corps du contenu
+ */
+$bodyPadding: 10px;
+body.mceContentBody{
+    margin: auto;
+    width: ($rowWidth+($bodyPadding*2));
+    max-width: 100%;
+    padding: $bodyPadding;
+    
+    @include foundation-content-base;
+    
+    .row{
+        padding: 3px;
+        border: 1px dashed #BBBBBB;
+        
+        .columns{
+            border: 1px dotted #BBBBBB;
+        }
+    }
+}

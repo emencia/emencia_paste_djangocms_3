@@ -1,0 +1,4 @@
+include MANIFEST.in
+include LICENCE.txt
+include README.rst
+recursive-include emencia_paste_djangocms_3/django_buildout *

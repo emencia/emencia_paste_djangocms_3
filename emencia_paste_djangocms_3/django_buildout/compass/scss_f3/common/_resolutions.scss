@@ -1,0 +1,15 @@
+@import "compass/css3";
+@import "settings";
+@import "foundation/settings";
+
+/*
+ * Add more screen width resolution for more granular breakpoints
+ *
+ */
+$screenTiny: 320px;
+$screenTinyHigh: 480px;
+$screenSmall: 768px !default;
+$screenSmallHigh: 800px;
+$screenMediumLow: 1024px;
+//$screenMedium: 1279px !default;
+//$screenXlarge: 1441px !default;

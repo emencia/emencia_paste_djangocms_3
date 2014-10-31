@@ -1,0 +1,23 @@
+/* 
+ * Country flags sprites
+ */
+
+@import "compass/css3";
+
+// Load icon sprites
+@import "flags/flags-24/*.png";
+@include all-flags-24-sprites;
+.flags-24-sprite{
+    display: block;
+    width: flags-24-sprite-width(fr);
+    height: flags-24-sprite-height(fr);
+    text-indent: -10000px;
+}
+@import "flags/flags-35/*.png";
+@include all-flags-35-sprites;
+.flags-35-sprite{
+    display: block;
+    width: flags-35-sprite-width(fr);
+    height: flags-35-sprite-height(fr);
+    text-indent: -10000px;
+}

@@ -1,0 +1,641 @@
+/*
+ * Main content stylesheet
+ */
+@import "compass/css3";
+@import "common/resolutions";
+
+strong{
+    color: #F8AD13;
+}
+
+img.expand{
+    display: block;
+    width: 100%;
+}
+
+.row.black{
+    color: #ffffff;
+    background-color: #000000;
+}
+.on-black{
+    color: #ffffff;
+    background-color: #000000;
+
+    h2, h3, h4, h5, h6, p, li{
+        color: $white;
+    }
+}
+
+// Force le rétablissement des 'row' descendants directs dans un 'row-fluid'
+.row.row-fluid.homepage{
+    padding: 0;
+
+    &>.row{
+        width: $rowWidth;
+        max-width: 100%;
+        margin: 0 auto;
+        padding: ($columnGutter/2) 0;
+
+        &.unpadded{
+            padding: 0;
+        }
+    }
+}
+
+// Bouton : Simple déclinaison blanc sur noir
+.button.black{
+    background-color: #000000;
+    border: 1px solid #000000;
+    color: #FFFFFF;
+
+    &:hover, &:focus{
+        background-color: #404040;
+    }
+}
+
+// Bouton : noir à plat (sans bordure mais avec un shadow)
+.button.plain-black{
+    margin: 10px;
+    padding: 15px 20px 15px 20px;
+    font-size: 18px;
+    font-weight: 600;
+    color: $white;
+    text-transform: uppercase;
+    background-color:$black;
+    border: 1px solid $black;
+    @include box-shadow(rgba(15, 15, 15, .7) 0 0 5px);
+
+    @media (min-width: $screenSmall) {
+        margin: 20px 0;
+        padding: 20px 35px;
+        font-size: 24px;
+
+        &.radius-left{
+            padding-right: 80px;
+            @include border-right-radius(0);
+        }
+
+        &.radius-right{
+            padding-left: 80px;
+            @include border-left-radius(0);
+        }
+    }
+
+    .picto{
+        font-weight: 600;
+        color: $white;
+    }
+}
+
+// *****
+// Album d'images très simple
+// *****
+.album-grid-simple{
+    @include clearfix;
+
+    .item{
+        //margin-bottom: ms(2);
+        text-align: center;
+
+        &:last-child {
+            float: left;
+        }
+
+        h3, h4, h5{
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        p{
+            margin-bottom: 0;
+            font-size: 11px;
+            font-weight: 400;
+
+            &+p{
+                margin-top: 8px;
+            }
+        }
+
+        img{
+            @extend img.centered;
+        }
+    }
+}
+// *****
+// Album d'images avec le label positionné à droite de son image
+// *****
+.album-grid-aside{
+    @include clearfix;
+
+    .item{
+        //margin-bottom: ms(0);
+
+        &:last-child{
+            float: left;
+        }
+
+        a{
+            color: #000000;
+        }
+
+        .thumb{
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .content{
+            padding-top: 4%;
+            padding-left: 10px;
+            padding-right: 0;
+
+            p{
+                margin: 0;
+            }
+        }
+
+        .brand{
+            display: block;
+        }
+    }
+}
+
+// *****
+// Titre démesuré dans un bloc visuel
+// *****
+.block-title{
+    //padding: ms(4) ms(1) ms(1);
+    font-size: ms(5);
+    font-weight: 300;
+    color: #ffffff;
+    background-color: #000000;
+
+    .brand{
+        display: block;
+    }
+}
+
+// *****
+// Pour les pages d'index de présentation
+// *****
+// Bloc d'intro simple
+.index-intro{
+    border: 1px solid #CCCCCC;
+    margin-bottom: 30px;
+
+    .visual{
+        padding: 0;
+        margin-bottom: 15px;
+    }
+
+    .item{
+        margin-bottom: 15px;
+        color: #9F9F9F;
+
+        h2{
+            font-size: 30px;
+        }
+
+        &+.item{
+            border-left: 2px solid #000000;
+        }
+    }
+}
+// Bloc d'intro utilisant une image de fond
+.index-intro-2{
+    //padding: ms(1) ms(1) ms(1)*2;
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: top left;
+    @include background-size(100% 100%);
+
+    &.unpadded{
+        padding: 0;
+    }
+
+    .background{
+        display: none;
+    }
+
+    .white-wrap{
+        background-color: rgba(240, 240, 240, 0.5);
+    }
+
+    .black-wrap{
+        color: #ffffff;
+        background-color: rgba(40, 40, 40, 0.5);
+
+        h2, h3, h4, h5, div, dt, dd, li, p, blockquote, th, td{
+            color: #ffffff;
+        }
+    }
+
+    .content{
+        div, dt, dd, li, p, blockquote, th, td{
+            font-size: 15px;
+            font-weight: 400;
+        }
+        ul{
+            @extend ul.square !optional;
+            //list-style-type: none;
+
+            li{
+                position: relative;
+
+                &[class^="icon-"]:before{
+                    font-size: 1.1em;
+                    left: -1.2em;
+                    line-height: 1em;
+                    position: absolute;
+                    top: 0;
+                    width: 1em;
+                }
+            }
+        }
+        &.white-on-black{
+            div, dt, dd, li, p, blockquote, th, td{
+                color: #ffffff;
+            }
+        }
+
+        &+.content{
+            margin-top: ms(1);
+        }
+    }
+}
+
+// Mosaic grid
+.mosaic-rows{
+    margin-bottom: 15px;
+
+    h2{
+        margin-bottom: 15px;
+
+        @media (max-width: $screenSmall - 1) {
+            padding: 0 5px;
+        }
+    }
+
+    .underlined{
+        border-bottom: 1px solid $black;
+
+        @media (min-width: $screenSmall) {
+            strong{
+                background-color: white;
+                padding-right: 15px;
+            }
+        }
+    }
+
+    .row{
+        .visual.columns{
+            padding: 5px;
+
+            .badge-new{
+                padding: 12px 6px;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                font-size: 12px;
+                font-weight: 600;
+                text-transform: uppercase;
+                color: $white;
+                background-color: #F9F9F9;
+                @include background-image(linear-gradient(#999999, #7C7C7C 50%, #363636));
+                border: 3px solid $white;
+                @include border-radius(20px);
+                @include text-shadow(#606060 0 0 3px);
+                @include box-shadow(#606060 0 2px 4px 1px);
+            }
+
+            .bottomline{
+                margin: 0;
+                padding: 5px 8px;
+                position: absolute;
+                bottom: 5px;
+                left: 5px;
+                right: 5px;
+                font-size: 14px;
+                font-weight: 600;
+                color: $white;
+                background-color: rgba(0, 0, 0, .7);
+
+                a{
+                    color: $white;
+                }
+            }
+        }
+    }
+}
+
+// Grille d'éléments
+.index-items{
+    //margin-bottom: ms(1)*2;
+
+    .item{
+        position: relative;
+        padding: 5px;
+
+        .wrap{
+            position: relative;
+            padding: 15px;
+            @include box-shadow(rgba(30,30,30,.7) 0 0 8px);
+        }
+
+        h2:first-child,h3:first-child,h4:first-child,h5:first-child,h6:first-child,p:first-child{
+            margin-top: 0;
+        }
+
+        h2.badge,
+        h3.badge,
+        h4.badge{
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 5000;
+            padding: 10px 30px;
+            color: $white;
+            font-size: 18px;
+            font-weight: 600;
+            text-transform: uppercase;
+            background-color: $black;
+
+            a{
+                color: $white;
+            }
+
+            &+*{
+                padding-top: 40px;
+            }
+        }
+
+        img{
+            //margin-bottom: ms(1);
+        }
+
+        .content + div,
+        .content + p,
+        .content + ul{
+            //margin-top: ms(1);
+        }
+
+        ul{
+            @extend ul.square !optional;
+            list-style-type: none;
+
+            li{
+                position: relative;
+
+                &:before{
+                    position: absolute;
+                    left: -1.2em;
+                    top: 0.6em;
+                    width: 1em;
+                    font-size: 0.8em;
+                    line-height: 1em;
+                    color: inherit;
+                    font-family: 'fontawesome';
+                    content: "\f054";
+                }
+            }
+        }
+
+        .black-wrap{
+            padding: 0 0 5px 0;
+            color: #ffffff;
+            background-color: #000000;
+
+            p{
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+        }
+
+        &.flyer{
+            h2{
+                font-size: 22px;
+            }
+            h3{
+                font-size: 19px;
+            }
+            p, li{
+                font-size: 12px;
+                line-height: 1.1;
+                margin: 0;
+            }
+        }
+
+        &.news{
+            .wrap{
+                padding: 0;
+                /*background-color: #2C2D2D;*/
+            }
+            ul.feed{
+                padding: 60px 15px 20px;
+                li{
+                    color: #2C2D2D;
+                    h3{
+                        font-size: 12px;
+                        color: inherit;
+                    }
+                    &:before{
+                        color: inherit;
+                        top: 0.1em;
+                    }
+                    a{
+                        color: inherit;
+                        &:hover{
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+
+        /*&.news{
+            .content{
+                position: relative;
+                padding: 0;
+                z-index: 4000;
+            }
+
+            .entry-image{
+                margin: 0;
+                padding: 0;
+                line-height: 0;
+
+                img{
+                    display: block;
+                    margin: 0 auto;
+                }
+            }
+
+            .entry-content{
+                position: absolute;
+                bottom: 0;
+                padding: 7px 10px;
+                height: 40%;
+                overflow: hidden;
+                color: #ffffff;
+                background-color: #2C2D2D;
+
+                h3{ font-size: 14px; color: #ffffff; margin-bottom: 5px;}
+                h4{ font-size: 12px; color: #ffffff; margin-bottom: 5px;}
+                h5, h6, p, li{ font-size: 11px; color: #999999; margin-bottom: 5px;}
+
+                p{
+                    margin-bottom: 0;
+
+                    &+*{
+                        margin-bottom: 5px;
+                    }
+                }
+
+                .entry-resume:after {
+                    bottom: 10px;
+                    font-weight: 700;
+                    position: absolute;
+                    right: 10px;
+                    font-family: 'fontawesome';
+                    font-size: 0.8em;
+                    @extend .icon-chevron-right:before;
+                }
+            }
+        }*/
+    }
+}
+
+.intro-overview{
+    @include clearfix;
+    position: relative;
+    margin-bottom: 60px;
+    @include box-shadow(rgba(15, 15, 15, .6) 0 0 15px);
+
+    &.alternate{
+        @include box-shadow(none);
+    }
+
+    // Intro en survol d'une image
+    .visual-overview{
+        p{
+            margin: 0;
+            line-height: 0;
+        }
+    }
+
+    .overview{
+        padding-bottom: 10px;
+        position: absolute;
+        left: 0;
+        bottom: -40px;
+        z-index: 6000;
+        width: 31%;
+        background-color: $white;
+        @include box-shadow(rgba(15, 15, 15, .7) 0 0 5px);
+        @media only screen and (max-width: $topBarBreakPoint+1) {
+            width: auto;
+            position: static;
+        }
+
+        &>*{
+            padding-left: 30px;
+            padding-right: 30px;
+            font-size: 20px;
+            line-height: 1.2;
+        }
+
+        h2 {
+            background-color: #000000;
+            font-size: 26px;
+            color: #FFFFFF;
+            margin: 0 0 25px 0;
+            padding: 25px 30px;
+            text-transform: uppercase;
+        }
+    }
+
+    // Intro adjacente à une image
+    .overview-2{
+        padding: 0;
+
+        &>*{
+            padding: 25px;
+        }
+        p, li{
+            font-size: 20px;
+            line-height: 1.2;
+        }
+
+        h2{
+            margin: 0;
+            padding: 35px 25px;
+            font-size: 40px;
+            color: #FFFFFF;
+            text-transform: uppercase;
+            background-color: #000000;
+        }
+    }
+}
+
+.blockrow{
+    @include clearfix;
+
+    &+.blockrow{
+        margin-top: 20px;
+    }
+
+    .title{
+        padding: 0;
+        @include background-image(linear-gradient(#ffffff, #ffffff 60%, #F5F5F5 75%, #D7D7D7));
+
+        h2{
+            margin: 0;
+            padding: 10px 0;
+            text-transform: uppercase;
+            @include background-image(linear-gradient(left, rgba(255, 255, 255, 1.0), rgba(255, 255, 255, 0.0) 30%, rgba(255, 255, 255, 0.0) 80%, rgba(255, 255, 255, 1.0)));
+        }
+    }
+
+    .content{
+        padding-top: 35px;
+        padding-right: 10%;
+    }
+}
+
+.grid-band{
+    .visual{
+        color: $white;
+        background-color: $black;
+        @include box-shadow(rgba(15, 15, 15, .7) 0 0 5px);
+
+        h2,h3,h4,h5,h6{
+            margin: 0;
+            padding: 10px 20px;
+            color: inherit;
+        }
+    }
+    .content{
+        padding: 10px 25px;
+    }
+}
+
+.intro-block{
+    padding: 10px;
+    background-color: #FEFEFE;
+    @include background-image(linear-gradient(#FEFEFE, #D4D4D4));
+    border-bottom: 1px solid #8E8E8E;
+
+    strong{
+        color: inherit;
+    }
+
+    &.dark-grey{
+        color: $white;
+        background-color: #171717;
+        @include background-image(linear-gradient(left, #9E9E9E, #171717 40%, #171717 60%, #9E9E9E));
+        border-bottom: 1px solid #8A8A8A;
+
+        h2,h3,h4,h5,h6, strong{
+            color: inherit;
+        }
+    }
+}

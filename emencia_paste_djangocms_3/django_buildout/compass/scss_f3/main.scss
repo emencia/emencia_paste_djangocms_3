@@ -1,0 +1,397 @@
+// Make sure the charset is set appropriately
+@charset "UTF-8";
+
+// Behold, here are all the Foundation components.
+@import
+  "foundation/components/accordion",
+  "foundation/components/alert-boxes",
+  "foundation/components/block-grid",
+  "foundation/components/breadcrumbs",
+  "foundation/components/button-groups",
+  "foundation/components/buttons",
+  "foundation/components/clearing",
+  "foundation/components/dropdown",
+  "foundation/components/dropdown-buttons",
+  "foundation/components/flex-video",
+  "foundation/components/forms",
+  "foundation/components/grid",
+  "foundation/components/inline-lists",
+  "foundation/components/joyride",
+  "foundation/components/keystrokes",
+  "foundation/components/labels",
+  "foundation/components/magellan",
+  "foundation/components/orbit",
+  "foundation/components/pagination",
+  "foundation/components/panels",
+  "foundation/components/pricing-tables",
+  "foundation/components/progress-bars",
+  "foundation/components/reveal",
+  "foundation/components/side-nav",
+  "foundation/components/split-buttons",
+  "foundation/components/sub-nav",
+  "foundation/components/switch",
+  "foundation/components/tables",
+  "foundation/components/tabs",
+  "foundation/components/thumbs",
+  "foundation/components/tooltips",
+  "foundation/components/top-bar",
+  "foundation/components/type",
+  "foundation/components/offcanvas",
+  "foundation/components/visibility";
+
+$topBarBreakPoint: 940px;
+$columnGutter: 30px;
+$rowWidth: 1000px;
+$screenSmall: 940px;
+$white: #fff;
+$black: #000;
+
+// Webapp specific
+@import "components/font-awesome";
+@import "components/magnific-popup";
+@import "components/flags";
+@import "mixins/base";
+@import "common/resolutions";
+@import "common/addons";
+
+html{
+    background-color: #242424;
+
+    body{
+        background-color: #ffffff;
+    }
+}
+
+/*
+ * Gestion de l'entête
+ */
+#header-container{
+    color: #ffffff;
+    background-color: #000000;
+    position: relative;
+
+    #header{
+        margin-bottom: 0;
+        background-color: transparent;
+
+        .name{
+            h1{
+                position: absolute;
+                z-index: 5000;
+                height: $topBarHeight;
+                line-height: 1em;
+
+                a{
+                    padding: 55px 0 0;
+                    height: auto;
+                    line-height: 0;
+                    @media only screen and (max-width: $topBarBreakPoint+1) {
+                        padding: 0 5px;
+                        height: inherit;
+                    }
+
+                    span{
+                        display: block;
+                        width: 205px;
+                        height: 39px;
+                        text-indent: -10000px;
+                        background-image: image-url("theme/logo.png");
+                        background-repeat: no-repeat;
+                        background-position: center left;
+                        @media only screen and (max-width: $topBarBreakPoint+1) {
+                            height: inherit;
+                        }
+                    }
+                }
+            }
+        }
+
+        .toggle-topbar{
+            z-index: 5500;
+            a{
+                z-index: 6000;
+                right: 20px;
+            }
+        }
+
+        @media only screen and (min-width: $topBarBreakPoint) {
+            section.menu{
+                display: block;
+                position: absolute;
+                width: 100%;
+                padding-left: 230px;
+                left: 0;
+                bottom: 14px;
+
+                #site-menu{
+                    height: auto;
+                    line-height: 1em;
+
+                    li{
+                        position: relative;
+
+                        a{
+                            padding: 5px 13px;
+                            height: auto;
+                            line-height: 1em;
+                            font-size: 17px;
+                            font-weight: 600;
+                            text-transform: uppercase;
+                        }
+
+                        &.active a{
+                            color: #FD9C00;
+                        }
+                    }
+                }
+            }
+        }
+        @media only screen and (max-width: $topBarBreakPoint+1) {
+            section.menu{
+                #site-menu{
+                    li{
+                        a{
+                            height: 85px;
+                            line-height: 85px;
+                            text-transform: uppercase;
+                        }
+                    }
+                }
+            }
+        }
+
+        #brand-menu{
+            width: 400px;
+            position: absolute;
+            right: 5px;
+            bottom: 0;
+            z-index: 1000;
+            padding: 0 0 5px 0;
+            @media only screen and (max-width: $topBarBreakPoint) {
+                display: none;
+            }
+
+            .services{
+                display: block;
+                margin-right: 20px;
+                height: auto;
+                line-height: 1em;
+                float: right;
+
+                li{
+                    a{
+                        padding: 5px 10px;
+                        height: auto;
+                        line-height: 1em;
+                        font-size: 13px;
+                        font-weight: 400;
+                        color: #9A9A9A;
+                    }
+                }
+            }
+        }
+    }
+
+    #user-logged{
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        margin: 0;
+
+        p{
+            margin: 0;
+            padding: 0;
+        }
+
+        @media only screen and (max-width: $topBarBreakPoint+1) {
+            position: static;
+            margin: 5%;
+
+            .welcome{
+                display: none;
+            }
+        }
+    }
+}
+
+/*
+ * Sous menu contextuel
+ */
+#subheader{
+    @include background-image(linear-gradient(#4C4C4C, #1A1A1A 40%, #080808));
+
+    .nav-bar{
+        max-width: $rowWidth;
+        margin: 0 auto;
+        background-color: transparent;
+
+        li{
+            a{
+                font-size: 14px;
+                text-transform: uppercase;
+            }
+
+            &.active{
+                @include text-shadow(#303030 0 0 3px);
+                @include background-image(linear-gradient(lighten(#4C4C4C, 20%), lighten(#1A1A1A, 20%) 40%, lighten(#080808, 20%)));
+                border-color: inherit;
+            }
+        }
+    }
+}
+
+/*
+ * Pour le corps du contenu principal
+ */
+@import "components/slideshows";
+
+#content-container{
+    @include foundation-content-base;
+    padding-bottom: 30px;
+
+    @import "components/zinnia";
+    @import "components/recaptcha";
+    @import "content";
+}
+
+/*
+ * Pied de page
+ */
+#footer-container{
+    min-width: 0;
+    padding: 0;
+
+    .product-overviews{
+        color: $white;
+        background-color: #dadada;
+
+        .columns .wrap{
+            border: 1px solid #ffffff;
+
+            img{
+                width: 100%;
+                max-width: 100%;
+                border: 7px solid #E5E5E5;
+            }
+
+            .details{
+                width: 91%;
+                height: 55%;
+                position: absolute;
+                bottom: 0;
+                padding: 8px 10px;
+                background-color: #111111;
+                //opacity: 0.8;
+
+                h3{
+                    margin-top: 0;
+                    margin-bottom: 10px;
+                    font-size: 12px;
+                    color: #FFFFFF;
+                    text-transform: uppercase;
+
+                    &:after{
+                        position: absolute;
+                        top: 10px;
+                        right: 7px;
+                        width: 1em;
+                        font-size: 13px;
+                        line-height: 1em;
+                        color: #CA5F29;
+                        font-family: 'fontawesome';
+                        content: "\f054";
+                    }
+                }
+
+                ul{
+                    margin-bottom: 0;
+                    padding: 0 0 0 2em;
+                    list-style-type: square;
+                    color: #9A9A9A;
+
+                    li{
+                        line-height: 1.1em;
+
+                        a{
+                            font-size: 11px;
+                            color: #9A9A9A;
+
+                            &:hover{
+                                color: #b4752b;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .sections{
+        color: #545454;
+        background-color: #EAEAEA;
+        font-weight: 400;
+
+        h3{
+            margin-bottom: 10px;
+            margin-top: 10px;
+            color: #545454;
+            font-size: 11px;
+        }
+
+        ul{
+            list-style-type: none;
+
+            li{
+                color: #545454;
+                font-size: 11px;
+
+                a{
+                    color: #646464;
+                }
+            }
+        }
+    }
+
+    .credits{
+        color: $white;
+        background-color: #171717;
+        @include background-image(linear-gradient(left, #9E9E9E, #171717 40%, #171717 60%, #9E9E9E));
+
+        .row.content{
+            padding: 30px 0 55px;
+        }
+
+        .site-credits{
+            margin: 15px 0;
+        }
+
+        p{
+            margin: 0;
+            padding: 0;
+            font-size: 13px;
+            line-height: 1;
+            text-transform: uppercase;
+
+            .brand{
+                /*font-size: 3.4em;*/
+                text-transform: none;
+                &:after {
+                    content: "®";
+                }
+            }
+        }
+
+        a{
+            color: $white;
+            font-weight: bold;
+            text-decoration: none;
+            &:hover{
+                color: #b4752b;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+// Patchs for IE
+@import "components/ie";

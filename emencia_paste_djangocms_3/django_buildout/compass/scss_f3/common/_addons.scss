@@ -1,0 +1,65 @@
+@import "compass/css3";
+@import "mixins/base";
+
+// Alignment addons
+.responsive-left{
+    float:none;
+    @media (min-width: $topBarBreakPoint) {
+        float:left;
+    }
+}
+.responsive-right{
+    float:none;
+    @media (min-width: $topBarBreakPoint) {
+        float:right;
+    }
+}
+
+// Grid addons
+.force-clearfix{
+    @include clearfix;
+}
+.row-fluid{
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    @extend %clearfix !optional;
+    padding: 0 ($columnGutter/2);
+}
+.row.content{
+    width: $rowWidth;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: ($columnGutter/2) 0;
+}
+
+// Retire le padding des colonnes
+.columns.unpadded{
+    padding: 0;
+}
+
+// Raccourci de positionnement relatif
+.relative-position{
+    position: relative;
+}
+
+// Formulaire très simple ou on "efface" les fieldsets et legend
+form.simple{
+    fieldset{
+        border: 0;
+        margin: 0;
+        padding: 0;
+    }
+    legend{
+        background-color: transparent;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+// For ckeditor in the admin, we need to clear fix because preview stuff can miss clearing
+.djangocms_text_ckeditor-text form{
+    clear: both;
+}
+
+@include global-addons;

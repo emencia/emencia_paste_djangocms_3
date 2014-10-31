@@ -1,0 +1,99 @@
+@import "compass/css3";
+@import "settings";
+@import "foundation/settings";
+@import "common/resolutions";
+
+/*
+ * Pour slideshows avec Foundation Orbit
+ */
+.orbit-wrapper{
+    margin-bottom: 30px;
+
+    .timer{
+        display: none;
+    }
+}
+[id^="slideshow-container-"]{
+    height: 476px;
+    background-image: image-url("theme/loading_spinner.gif");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: #f4f4f4;
+
+    // Hided slides by default (while loading images)
+    .row.content{
+        display: none;
+    }
+
+    // When orbit (and so image slides) are loaded
+    &.orbit{
+        // Hide the spinner
+        margin-bottom: 0;
+        background-image: none;
+        background-color: transparent;
+
+        // Display slides
+        .row.content{
+            display: block;
+        }
+    }
+
+    // Slide item
+    .slide-item{
+        background-repeat: no-repeat;
+        background-position: bottom left;
+        font-weight: 600;
+        @include background-size(100% 100%);
+
+        &.clickable{
+            cursor: pointer;
+        }
+
+        // Display slides
+        .row.content{
+            .well-box{
+                color: #ffffff;
+                margin-top: 40px;
+                padding: 20px 25px 20px 25px;
+                background-color: rgba(73, 73, 72, 0.8);
+                @include border-radius(5px);
+
+                @media only screen and (max-width: $screenSmall - 1) {
+                    margin: 5px;
+                }
+
+
+                kbd{
+                    color: #000000;
+                }
+                p, li{
+                    margin-bottom: 4px;
+                    font-size: 15px;
+                    line-height: 19px;
+                    font-weight: 600;
+
+                    strong{
+                        font-weight: 700;
+                    }
+                }
+
+                h2{
+                    margin-top: 0;
+                    font-size: 22px;
+                    font-weight: 700;
+                    color: #ffffff;
+                    text-transform: uppercase;
+                }
+
+                .button{
+                    margin-top: 10px;
+                    text-transform: uppercase;
+                    font-size: 10px;
+                    @include background-image(linear-gradient(#5276B3 49.5%, #2754A0 50%, #2754A0));
+                    border: 1px solid #5276B3;
+                    @include box-shadow(#404040 1px 1px 1px);
+                }
+            }
+        }
+    }
+}

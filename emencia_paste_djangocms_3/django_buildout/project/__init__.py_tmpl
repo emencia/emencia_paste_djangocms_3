@@ -1,0 +1,2 @@
+epaster_template_name = '${epaster_template_name}'
+epaster_template_version = '${epaster_template_version}'

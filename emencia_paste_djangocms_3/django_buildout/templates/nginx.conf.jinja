@@ -1,0 +1,33 @@
+server {
+    listen       80;
+    server_name  {{ domain }}{% if other_domains %} {{ other_domains }}{% endif %};
+    charset      utf-8;
+
+    error_log  /var/log/nginx/{{ parts.VARS.NAME }}_error_log;
+    access_log  /var/log/nginx/{{ parts.VARS.NAME }}_access_log;
+
+    {% if parts.VARS.FORCE_REWRITE|as_bool %}
+    if ($host !~* ^{{ domain|replace(".","\.") }}) {
+        rewrite ^/(.*)     http://{{ domain }}/$1;
+    }
+
+    {% endif %}
+    location /media {
+        alias {{ parts.buildout.directory }}/project/media;
+    }
+
+    location /static {
+        alias {{ parts.buildout.directory }}/project/static;
+    }
+
+    location /sitemap.xml {
+	alias {{ parts.buildout.directory }}/project/media/uploads/sitemap/sitemap.xml;
+    }
+
+    root {{ parts.buildout.directory }}/var/www;
+    try_files $uri @uwsgi;
+    location @uwsgi {
+        include                 /etc/nginx/uwsgi_params;
+        uwsgi_pass              unix:{{ parts.uwsgi.socket }};
+    }
+}

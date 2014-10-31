@@ -1,0 +1,32 @@
+/*
+ * Fixes for Internet Explorer 8
+ */
+.lt-ie9{
+    #header-container{
+        #header{
+            section.menu{
+                #site-menu{
+                    li{
+                        a{
+                            font-size: 15px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #content-container #slides-container .slide-item{
+        background-position: center center;
+    }
+    
+    #content-container{
+        .index-items{
+            .item{
+                .wrap{
+                    border: 1px solid #000000;
+                }
+            }
+        }
+    }
+}
