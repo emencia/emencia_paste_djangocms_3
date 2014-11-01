@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 """
-Paste template for DjangoCMS 3.x, install all needed stuff plus some optionnal apps
+Paste for DjangoCMS 3.x, install all needed stuff plus some optionnal apps
 """
 from os import getcwd, symlink
 from os.path import dirname, join
@@ -27,7 +27,7 @@ class Caller(object):
 
 class Django(Template):
     """
-    Paste template
+    Paste
     """
     # Relative path to the directory containing all stuff to install
     _template_dir = 'django_buildout'
@@ -35,31 +35,32 @@ class Django(Template):
     summary = "DjangoCMS 3.x project"
     # Questions to ask to enable some mods/options
     vars = [
-        var('admin_style', 'Enable djangocms_admin_style (yes/no)', default='yes'),
-        var('accounts', 'Enable accounts registration (yes/no)', default='yes'),
-        var('contact_form', 'Enable contact_form (yes/no)', default='yes'),
-        var('porticus', 'Enable porticus (yes/no)', default='yes'),
-        var('site_metas', 'Enable site_metas (yes/no)', default='yes'),
-        var('slideshows', 'Enable Slideshows (yes/no)', default='yes'),
+        var('admin_style', 'Enable "djangocms_admin_style" (yes/no)', default='yes'),
+        var('accounts', 'Enable "accounts registration" (yes/no)', default='yes'),
+        var('contact_form', 'Enable "contact_form" (yes/no)', default='yes'),
+        var('porticus', 'Enable "Porticus" (yes/no)', default='yes'),
+        var('site_metas', 'Enable "site_metas" (yes/no)', default='yes'),
+        var('slideshows', 'Enable "Slideshows" (yes/no)', default='yes'),
+        var('socialaggregator', 'Enable "Social Aggregator" (yes/no)', default='yes'),
         var('zinnia', 'Enable Zinnia (yes/no)', default='yes'),
     ]
 
     def pre(self, command, output_dir, kw):
         """
-        Prepare some context before install
+        Prepare some context before install (will be accessible from paste templates)
         """
-        # secret_key
+        # Build a random secret_key
         chars = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
         kw['secret_key'] = ''.join([ choice(chars) for i in range(50) ])
 
-        # template version
+        # Paste version
         kw['epaster_template_name'] = 'emencia-paste-djangocms-3'
         kw['epaster_template_version'] = template_version
 
 
     def post(self, command, output_dir, vars):
         """
-        Do some jobs after install
+        Do some tasks after install
         """
         if command.simulate:
             return

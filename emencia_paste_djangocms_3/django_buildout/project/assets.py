@@ -1,5 +1,7 @@
 """
 Available and enabled assets bundles for this project
+
+TODO: Split bundles
 """
 from django_assets import Bundle, register
 

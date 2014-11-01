@@ -120,21 +120,22 @@ $(document).ready(function($) {
         // Triggered event when Foundation 'interchange' plugin replace the content
         $interchanged_content_intro.on('replace', function (e, new_path, original_path) {
             // Inits postorious contents
-            //launchSlider();
             $('#slideshow-container').foundation('orbit');
-            $wallgrid_container.SocialWallGrid();
+            // Use socialaggregator lib only if loaded
+            $.fn.SocialWallGrid ? $wallgrid_container.SocialWallGrid() : null;
         });
         // Fallback for small resolution which is excluded from the interchange content
         // (and so does not trigger a 'replace')
         if(matchMedia(Foundation.media_queries.small).matches){
-            //launchSlider();
             $('#slideshow-container').foundation('orbit');
-            $wallgrid_container.SocialWallGrid();
+            // Use socialaggregator lib only if loaded
+            $.fn.SocialWallGrid ? $wallgrid_container.SocialWallGrid() : null;
         }
 
     } else {
         // If there is no interchange content
-        $wallgrid_container.SocialWallGrid();
+        // Use socialaggregator lib only if loaded
+        $.fn.SocialWallGrid ? $wallgrid_container.SocialWallGrid() : null;
     }
 
     // EBR: Emencia Browser Report

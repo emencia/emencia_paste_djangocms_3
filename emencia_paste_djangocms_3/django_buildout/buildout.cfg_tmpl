@@ -43,7 +43,6 @@ parts                = env
                        django-instance
 extensions           = gp.vcsdevelop
 develop-dir          = django-apps-src
-vcs-extend-develop   = git+git://github.com/wardi/django-filebrowser-no-grappelli.git@99245a3#egg=django-filebrowser
 # Mirroring common variables to replace '-' with '_' in their names as the '-' 
 # character is not allowed in Jinja2 templates
 eggs_directory       = $${:eggs-directory}
