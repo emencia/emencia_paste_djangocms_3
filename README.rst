@@ -6,4 +6,9 @@
 
 This is the `Epaster`_ template to build `DjangoCMS`_ 3.x projects with `Python Paste`_ and `buildout`_.
 
-`See its documentation on Read the Docs <http://epaster.readthedocs.org/en/latest/django.html>`_.
+Links
+-----
+
+* Download his `PyPi package <https://pypi.python.org/pypi/emencia_paste_djangocms_3>`_;
+* Clone it on his `Github repository <https://github.com/emencia/emencia_paste_djangocms_3>`_;
+* `Read its documentation on Read the Docs <http://epaster.readthedocs.org/en/latest/emencia_paste_djangocms_3.html>`_;
