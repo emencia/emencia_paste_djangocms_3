@@ -11,14 +11,10 @@ Note that this does not includes the whole Foundation SCSS because it works on
 plugin. But we include some SCSS from Foundation's components.
 */
 @import "settings";
-@import "compass/css3";
-@import "foundation/settings";
+@import "compass";
+@import "foundation/components/grid";
 
-@import "components/font-awesome";
-@import "mixins/base";
-
-// Used within ".brand"
-// @import url(http://fonts.googleapis.com/css?family=Radley);
+@import "components/mixins";
 
 body
 {
@@ -114,10 +110,10 @@ img:hover {
 }
 
 /* Here comes styles addons and overwrites */
-$bodyPadding: 10px;
+$bodyPadding: rem-calc(10px);
 .cke_editable{
     margin: auto;
-    width: ($rowWidth+($bodyPadding*2));
+    width: ($row-width+($bodyPadding*2));
     max-width: 100%;
     padding: $bodyPadding;
     

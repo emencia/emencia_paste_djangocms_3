@@ -1,6 +1,3 @@
-# Load source from the package sources, you need it in your django app sources
-add_import_path "../foundation5/bower_components/foundation/scss"
-
 # Set this to the root of your project when deployed:
 http_path = "/static/"
 sass_dir = "admin_style"
@@ -10,7 +7,7 @@ javascripts_dir = "../project/webapp_statics/djangocms_admin_style/js"
 
 # You can select your preferred output style here (can be overridden via the command line):
 # output_style = :expanded or :nested or :compact or :compressed
-output_style = :expanded
+output_style = :compressed
 
 # To enable relative paths to assets via compass helper functions. Uncomment:
 relative_assets = true

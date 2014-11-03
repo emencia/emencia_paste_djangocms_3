@@ -32,7 +32,7 @@ $flagicons: sprite-map("flags/flags-24/*.png");
     background: sprite($flagicons, de) no-repeat;
 }*/
 
-$sprite-names: ar-ma cs de en-au en-gb en-nz en en-us es-cl es-co es fr hu-si it ja ko-kr nl pl pt-br ru ss-za tr zh-cn zh-hk;
+$sprite-names: ar ar-ma cs de en-au en-gb en-nz en en-us es-cl es-co es fr hu-si it ja ko-kr nl pl pt-br ru ss-za tr zh-cn zh-hk;
 @each $sprite-name in $sprite-names {
     $full-sprite-name: "sprite-#{$sprite-name}";
     .#{$full-sprite-name}:before {

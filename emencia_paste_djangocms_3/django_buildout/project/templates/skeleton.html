@@ -18,7 +18,7 @@
             <meta name="Keywords" content="{% block meta-keywords %}{% endblock %}">
         {% endblock %}
 
-        {% block head_base_links %}{% assets "app_css" %}
+        {% block head_base_links %}{% assets "main_css" %}
             <link rel="stylesheet" href="{{ ASSET_URL }}">
         {% endassets %}{% endblock %}
         
@@ -99,7 +99,7 @@
     {% render_block "js" %}
     {% spaceless %}
         {% block head_base_js %}
-            {% assets "modernizr_js" "app_js" %}
+            {% assets "app_modernizr_js" "main_js" %}
                 <script type="text/javascript" src="{{ ASSET_URL }}"></script>
             {% endassets %}
         {% endblock %}

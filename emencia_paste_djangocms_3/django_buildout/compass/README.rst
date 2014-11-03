@@ -1,12 +1,20 @@
 
-Deux versions de Foundation cohabitent dans ce répertoire. La version courante utilisée en frontend est Foundation 5.
+Config 'config.rb'
+------------------
 
-Les éléments pour Foundation 3 restent en place si besoin car ils sont utilisés dans l'administration (comme CMS et Zinnia avec le ckeditor).
+Currently Foundation5 is used.
 
-Fichiers CSS produits pour Foundation3
---------------------------------------
+* **main.css** : The main CSS for layout to display in frontend;
+* **ckeditor.css** : CSS to be used to customize CKEditor;
+* **minimal.css** : Minimal CSS, essentially Foundation components without header and footer;
+* **flags.css** : *sprite-map* to generate an unique image for all available countries flags;
 
-* **app.css** : Le fichier à utiliser sur le site en frontend, contient la mise en page complète selon le design fourni, produit avec Foundation5;
-* **main.css** : Le fichier utilisable en frontend, produit avec Foundation3;
-* **ckeditor.css** : Le fichier à utiliser pour l'éditeur CKEditor, contient une mise en page basique pour le contenu DANS l'éditeur, produit avec Foundation3;
-* **minimal.css** : Une version basique de mise en page, en général reproduit tout le contenu possible de *main.css* mais sans l'entête et le pied de page, produit avec Foundation3;
+Config 'config_admin-style.rb'
+------------------------------
+
+Only used within the Django admin when using 'admin_style' mod.
+
+* **djangocms-admin.css** : Main CSS for 'admin_style', this is where you can overrides almost all its base CSS;
+* **djangocms-admin-frontend.css** : CSS for some 'admin_style' frontend screen, don't matter about it;
+* **ie.css** : CSS for some backward compatibility with InternetExplorer, you should not matter about it;
+

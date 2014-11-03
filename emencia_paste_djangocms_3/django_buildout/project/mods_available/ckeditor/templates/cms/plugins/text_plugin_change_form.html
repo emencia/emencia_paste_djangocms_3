@@ -16,8 +16,6 @@ And finally, we includes some javascripts frontend needed to have a better rende
 <script type="text/javascript" src="{{ STATIC_URL }}js/jquery/addons.js"></script>
 <script type="text/javascript">//<![CDATA[
     (function($) {
-        //     CKEDITOR.extraAllowedContent = { a: {attributes: 'boo'} };
-        //    CKEDITOR.on( 'instanceReady', function( ev ) {% templatetag openvariable %}ev.editor.dataProcessor.writer.selfClosingEnd = '>';{% templatetag closevariable %});
         // CMS.$ will be passed for $
         $(document).ready(function () {
             CMS.API.Helpers.csrf('{{ csrf_token }}');

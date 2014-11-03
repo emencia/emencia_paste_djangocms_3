@@ -1,6 +1,3 @@
-/*
- * Consistant colors names facility
- */
 /* line 316, ../../../foundation5/bower_components/foundation/scss/foundation/components/_global.scss */
 meta.foundation-version {
   font-family: "/5.3.3/";
@@ -8536,20 +8533,20 @@ img.divider {
   height: 300px;
 }
 
-/* line 69, ../../../compass/scss/app.scss */
+/* line 63, ../../../compass/scss/app.scss */
 .top-bar-section #auth-menu > strong {
   color: white;
   line-height: 45px;
   padding: 0 15px;
 }
-/* line 75, ../../../compass/scss/app.scss */
+/* line 69, ../../../compass/scss/app.scss */
 .top-bar-section #languageChooser a {
   position: relative;
   line-height: 1;
   padding: 15px 40px;
 }
 
-/* line 83, ../../../compass/scss/app.scss */
+/* line 77, ../../../compass/scss/app.scss */
 #body_content {
   /*
   .album-grid-aside{
@@ -8697,6 +8694,7 @@ img.divider {
 /* line 10, ../../../compass/scss/components/_socialaggregator.scss */
 #body_content #isocontainer #isogrid .grid-base {
   width: 100%;
+  /*             @media only screen and (min-width:64.063em) { */
 }
 @media only screen and (min-width: 40.063em) {
   /* line 10, ../../../compass/scss/components/_socialaggregator.scss */
@@ -8712,7 +8710,7 @@ img.divider {
     text-indent: -3000px;
   }
 }
-/* line 25, ../../../compass/scss/components/_socialaggregator.scss */
+/* line 26, ../../../compass/scss/components/_socialaggregator.scss */
 #body_content #isocontainer #isogrid .grid-item {
   background-color: transparent;
   /*
@@ -8724,18 +8722,6 @@ img.divider {
   /*
    * Grid item variations from content type
    */
-  /*&.facebook .containItem .contentBlock .contentInfo:before,
-  &.article-facebook .containItem .contentBlock .contentInfo:before{
-      content: "\e60e";
-  }
-  &.youtube .containItem .contentBlock .contentInfo:before,
-  &.article-youtube .containItem .contentBlock .contentInfo:before{
-      content: "\e63f";
-  }
-  &.twitter .containItem .contentBlock .contentInfo:before,
-  &.article-twitter .containItem .contentBlock .contentInfo:before{
-      content: "\e600";
-  }*/
   /*
   * Grid item variations from box sizing type
   */
@@ -8743,42 +8729,42 @@ img.divider {
    * Grid item variations from height size type
    */
 }
-/* line 29, ../../../compass/scss/components/_socialaggregator.scss */
+/* line 30, ../../../compass/scss/components/_socialaggregator.scss */
 #body_content #isocontainer #isogrid .grid-item.clickable {
   cursor: pointer;
 }
-/* line 33, ../../../compass/scss/components/_socialaggregator.scss */
+/* line 34, ../../../compass/scss/components/_socialaggregator.scss */
 #body_content #isocontainer #isogrid .grid-item:before {
-  color: black;
+  color: #ffffff;
   display: block;
   position: absolute;
   bottom: 1em;
   right: .5em;
   font-size: 1.6em;
 }
-/* line 42, ../../../compass/scss/components/_socialaggregator.scss */
+/* line 43, ../../../compass/scss/components/_socialaggregator.scss */
 #body_content #isocontainer #isogrid .grid-item > a {
-  color: black;
+  color: #ffffff;
 }
-/* line 44, ../../../compass/scss/components/_socialaggregator.scss */
+/* line 45, ../../../compass/scss/components/_socialaggregator.scss */
 #body_content #isocontainer #isogrid .grid-item > a:hover {
   color: inherit;
 }
-/* line 52, ../../../compass/scss/components/_socialaggregator.scss */
+/* line 53, ../../../compass/scss/components/_socialaggregator.scss */
 #body_content #isocontainer #isogrid .grid-item .containItem {
   width: 100%;
   display: block;
   float: left;
   overflow: hidden;
   margin-left: 12px;
-  background-color: #e7e7e7;
+  background-color: #FF6A63;
   background-repeat: no-repeat;
   -webkit-background-size: auto 68.5%;
   -moz-background-size: auto 68.5%;
   -o-background-size: auto 68.5%;
   background-size: auto 68.5%;
 }
-/* line 62, ../../../compass/scss/components/_socialaggregator.scss */
+/* line 63, ../../../compass/scss/components/_socialaggregator.scss */
 #body_content #isocontainer #isogrid .grid-item .containItem .contentBlock {
   position: absolute;
   left: 12px;
@@ -8788,85 +8774,101 @@ img.divider {
   padding: 12px;
   float: none;
   overflow: hidden;
-  background-color: #e7e7e7;
+  background-color: #FF6A63;
 }
 @media only screen and (min-width: 64.063em) {
-  /* line 62, ../../../compass/scss/components/_socialaggregator.scss */
+  /* line 63, ../../../compass/scss/components/_socialaggregator.scss */
   #body_content #isocontainer #isogrid .grid-item .containItem .contentBlock {
     top: 66%;
   }
 }
-/* line 76, ../../../compass/scss/components/_socialaggregator.scss */
+/* line 77, ../../../compass/scss/components/_socialaggregator.scss */
 #body_content #isocontainer #isogrid .grid-item .containItem .contentBlock .contentInfo {
   padding-right: 12px;
-  /*&:before{
-      position: absolute;
-      z-index: 5000;
-      bottom: $masonry-brick-gutter + 5px;
-      left: $masonry-brick-gutter;
-      content: "\e610";
-      font-family: 'icomoon';
-      font-size: 1.5rem;
+  /*@media only screen and (min-width:64.063em) {
+      width: 70%;
+      
+      &:after {
+          position: absolute;
+          right: 0;
+          top: $masonry-brick-gutter;
+          width: 30%;
+          content: "\e60f";
+          font-family: 'icomoon';
+          font-size: 5rem;
+          color: #ffffff;
+          text-align: center;
+      }
   }*/
 }
-/* line 79, ../../../compass/scss/components/_socialaggregator.scss */
+/* line 95, ../../../compass/scss/components/_socialaggregator.scss */
 #body_content #isocontainer #isogrid .grid-item .containItem .contentBlock .contentInfo h1, #body_content #isocontainer #isogrid .grid-item .containItem .contentBlock .contentInfo h2, #body_content #isocontainer #isogrid .grid-item .containItem .contentBlock .contentInfo h3, #body_content #isocontainer #isogrid .grid-item .containItem .contentBlock .contentInfo h4, #body_content #isocontainer #isogrid .grid-item .containItem .contentBlock .contentInfo h5, #body_content #isocontainer #isogrid .grid-item .containItem .contentBlock .contentInfo p, #body_content #isocontainer #isogrid .grid-item .containItem .contentBlock .contentInfo li, #body_content #isocontainer #isogrid .grid-item .containItem .contentBlock .contentInfo a {
-  color: black;
+  color: #ffffff;
   font-weight: 400;
 }
-/* line 83, ../../../compass/scss/components/_socialaggregator.scss */
+/* line 99, ../../../compass/scss/components/_socialaggregator.scss */
 #body_content #isocontainer #isogrid .grid-item .containItem .contentBlock .contentInfo h2 {
   font-size: 1rem;
   text-transform: uppercase;
   font-weight: 900;
   font-style: italic;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #FFFFFF;
   padding-bottom: 0.7rem;
 }
 @media only screen and (min-width: 40.063em) {
-  /* line 83, ../../../compass/scss/components/_socialaggregator.scss */
+  /* line 99, ../../../compass/scss/components/_socialaggregator.scss */
   #body_content #isocontainer #isogrid .grid-item .containItem .contentBlock .contentInfo h2 {
     font-size: 1.125rem;
     padding-bottom: 0.5rem;
   }
 }
 @media only screen and (min-width: 64.063em) {
-  /* line 83, ../../../compass/scss/components/_socialaggregator.scss */
+  /* line 99, ../../../compass/scss/components/_socialaggregator.scss */
   #body_content #isocontainer #isogrid .grid-item .containItem .contentBlock .contentInfo h2 {
     font-size: 1.25rem;
     padding-bottom: 1rem;
   }
 }
-/* line 100, ../../../compass/scss/components/_socialaggregator.scss */
+/* line 116, ../../../compass/scss/components/_socialaggregator.scss */
 #body_content #isocontainer #isogrid .grid-item .containItem .contentBlock .contentInfo h3 {
   font-size: 0.9375rem;
   text-transform: uppercase;
   font-weight: 700;
 }
 @media only screen and (min-width: 40.063em) {
-  /* line 100, ../../../compass/scss/components/_socialaggregator.scss */
+  /* line 116, ../../../compass/scss/components/_socialaggregator.scss */
   #body_content #isocontainer #isogrid .grid-item .containItem .contentBlock .contentInfo h3 {
     font-size: 1.0625rem;
   }
 }
 @media only screen and (min-width: 64.063em) {
-  /* line 100, ../../../compass/scss/components/_socialaggregator.scss */
+  /* line 116, ../../../compass/scss/components/_socialaggregator.scss */
   #body_content #isocontainer #isogrid .grid-item .containItem .contentBlock .contentInfo h3 {
     font-size: 1.125rem;
   }
 }
-/* line 112, ../../../compass/scss/components/_socialaggregator.scss */
+/* line 128, ../../../compass/scss/components/_socialaggregator.scss */
 #body_content #isocontainer #isogrid .grid-item .containItem .contentBlock .contentInfo p, #body_content #isocontainer #isogrid .grid-item .containItem .contentBlock .contentInfo li {
   font-size: 0.75rem;
   line-height: 1em;
 }
 @media only screen and (min-width: 40.063em) {
-  /* line 112, ../../../compass/scss/components/_socialaggregator.scss */
+  /* line 128, ../../../compass/scss/components/_socialaggregator.scss */
   #body_content #isocontainer #isogrid .grid-item .containItem .contentBlock .contentInfo p, #body_content #isocontainer #isogrid .grid-item .containItem .contentBlock .contentInfo li {
     font-size: 0.875rem;
   }
 }
-/* line 130, ../../../compass/scss/components/_socialaggregator.scss */
+/* line 136, ../../../compass/scss/components/_socialaggregator.scss */
+#body_content #isocontainer #isogrid .grid-item .containItem .contentBlock .contentInfo:before {
+  position: absolute;
+  z-index: 5000;
+  bottom: 17px;
+  left: 12px;
+  content: "\e610";
+  font-family: 'icomoon';
+  font-size: 1.5rem;
+}
+/* line 146, ../../../compass/scss/components/_socialaggregator.scss */
 #body_content #isocontainer #isogrid .grid-item .containItem .contentBlock .contentInfo .button_wrap {
   position: absolute;
   left: 0;
@@ -8875,9 +8877,9 @@ img.divider {
   margin: 0;
   padding: 12px;
   text-align: right;
-  background-color: #cecece;
+  background-color: #FF584F;
 }
-/* line 140, ../../../compass/scss/components/_socialaggregator.scss */
+/* line 156, ../../../compass/scss/components/_socialaggregator.scss */
 #body_content #isocontainer #isogrid .grid-item .containItem .contentBlock .contentInfo .button_wrap .button {
   margin: 0;
   padding: 10px;
@@ -8885,56 +8887,68 @@ img.divider {
   font-weight: 700 !important;
   text-transform: uppercase;
   background-color: transparent;
-  border: 2px solid black;
+  border: 2px solid #ffffff;
 }
-/* line 157, ../../../compass/scss/components/_socialaggregator.scss */
+/* line 173, ../../../compass/scss/components/_socialaggregator.scss */
 #body_content #isocontainer #isogrid .grid-item.no-button .containItem {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
-/* line 168, ../../../compass/scss/components/_socialaggregator.scss */
+/* line 184, ../../../compass/scss/components/_socialaggregator.scss */
 #body_content #isocontainer #isogrid .grid-item.article-event .block_posted, #body_content #isocontainer #isogrid .grid-item.article-infos .block_posted, #body_content #isocontainer #isogrid .grid-item.article-facebook .block_posted, #body_content #isocontainer #isogrid .grid-item.article-youtube .block_posted {
   display: none;
 }
-/* line 189, ../../../compass/scss/components/_socialaggregator.scss */
+/* line 190, ../../../compass/scss/components/_socialaggregator.scss */
+#body_content #isocontainer #isogrid .grid-item.facebook .containItem .contentBlock .contentInfo:before, #body_content #isocontainer #isogrid .grid-item.article-facebook .containItem .contentBlock .contentInfo:before {
+  content: "\e60e";
+}
+/* line 194, ../../../compass/scss/components/_socialaggregator.scss */
+#body_content #isocontainer #isogrid .grid-item.youtube .containItem .contentBlock .contentInfo:before, #body_content #isocontainer #isogrid .grid-item.article-youtube .containItem .contentBlock .contentInfo:before {
+  content: "\e63f";
+}
+/* line 198, ../../../compass/scss/components/_socialaggregator.scss */
+#body_content #isocontainer #isogrid .grid-item.twitter .containItem .contentBlock .contentInfo:before, #body_content #isocontainer #isogrid .grid-item.article-twitter .containItem .contentBlock .contentInfo:before {
+  content: "\e600";
+}
+/* line 205, ../../../compass/scss/components/_socialaggregator.scss */
 #body_content #isocontainer #isogrid .grid-item.w-sizer-1 {
   width: 100%;
 }
 @media only screen and (min-width: 64.063em) {
-  /* line 189, ../../../compass/scss/components/_socialaggregator.scss */
+  /* line 205, ../../../compass/scss/components/_socialaggregator.scss */
   #body_content #isocontainer #isogrid .grid-item.w-sizer-1 {
     width: 25%;
   }
 }
 @media only screen and (min-width: 90.063em) {
-  /* line 189, ../../../compass/scss/components/_socialaggregator.scss */
+  /* line 205, ../../../compass/scss/components/_socialaggregator.scss */
   #body_content #isocontainer #isogrid .grid-item.w-sizer-1 {
     width: 12.5%;
   }
 }
-/* line 200, ../../../compass/scss/components/_socialaggregator.scss */
+/* line 216, ../../../compass/scss/components/_socialaggregator.scss */
 #body_content #isocontainer #isogrid .grid-item.w-sizer-2 {
   width: 100%;
 }
 @media only screen and (min-width: 40.063em) {
-  /* line 200, ../../../compass/scss/components/_socialaggregator.scss */
+  /* line 216, ../../../compass/scss/components/_socialaggregator.scss */
   #body_content #isocontainer #isogrid .grid-item.w-sizer-2 {
     width: 50%;
   }
 }
 @media only screen and (min-width: 90.063em) {
-  /* line 200, ../../../compass/scss/components/_socialaggregator.scss */
+  /* line 216, ../../../compass/scss/components/_socialaggregator.scss */
   #body_content #isocontainer #isogrid .grid-item.w-sizer-2 {
     width: 25%;
   }
 }
-/* line 213, ../../../compass/scss/components/_socialaggregator.scss */
+/* line 229, ../../../compass/scss/components/_socialaggregator.scss */
 #body_content #isocontainer #isogrid .grid-item.h-sizer-1 {
   overflow: hidden;
 }
-/* line 216, ../../../compass/scss/components/_socialaggregator.scss */
+/* line 232, ../../../compass/scss/components/_socialaggregator.scss */
 #body_content #isocontainer #isogrid .grid-item.h-sizer-1 .containItem {
   position: relative;
   -webkit-background-size: cover;
@@ -8943,7 +8957,7 @@ img.divider {
   background-size: cover;
 }
 @media only screen and (min-width: 40.063em) {
-  /* line 216, ../../../compass/scss/components/_socialaggregator.scss */
+  /* line 232, ../../../compass/scss/components/_socialaggregator.scss */
   #body_content #isocontainer #isogrid .grid-item.h-sizer-1 .containItem {
     -webkit-background-size: auto 90%;
     -moz-background-size: auto 90%;
@@ -8952,7 +8966,7 @@ img.divider {
   }
 }
 @media only screen and (min-width: 90.063em) {
-  /* line 216, ../../../compass/scss/components/_socialaggregator.scss */
+  /* line 232, ../../../compass/scss/components/_socialaggregator.scss */
   #body_content #isocontainer #isogrid .grid-item.h-sizer-1 .containItem {
     -webkit-background-size: auto 80%;
     -moz-background-size: auto 80%;
@@ -8960,44 +8974,44 @@ img.divider {
     background-size: auto 80%;
   }
 }
-/* line 226, ../../../compass/scss/components/_socialaggregator.scss */
+/* line 242, ../../../compass/scss/components/_socialaggregator.scss */
 #body_content #isocontainer #isogrid .grid-item.h-sizer-1 .containItem .contentBlock {
   position: static;
   background-color: transparent;
 }
-/* line 230, ../../../compass/scss/components/_socialaggregator.scss */
+/* line 246, ../../../compass/scss/components/_socialaggregator.scss */
 #body_content #isocontainer #isogrid .grid-item.h-sizer-1 .containItem .contentBlock .contentInfo .button_wrap {
   right: 12px;
 }
-/* line 233, ../../../compass/scss/components/_socialaggregator.scss */
+/* line 249, ../../../compass/scss/components/_socialaggregator.scss */
 #body_content #isocontainer #isogrid .grid-item.h-sizer-1 .containItem .contentBlock .contentInfo .button_wrap .button {
   position: relative;
 }
-/* line 240, ../../../compass/scss/components/_socialaggregator.scss */
+/* line 256, ../../../compass/scss/components/_socialaggregator.scss */
 #body_content #isocontainer #isogrid .grid-item.h-sizer-1.no-button .containItem {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
-/* line 245, ../../../compass/scss/components/_socialaggregator.scss */
+/* line 261, ../../../compass/scss/components/_socialaggregator.scss */
 #body_content #isocontainer #isogrid .grid-item.h-sizer-2 {
   overflow: hidden;
 }
-/* line 249, ../../../compass/scss/components/_socialaggregator.scss */
+/* line 265, ../../../compass/scss/components/_socialaggregator.scss */
 #body_content #isocontainer #isogrid .grid-item.h-sizer-2.no-button .containItem {
   position: relative;
 }
-/* line 252, ../../../compass/scss/components/_socialaggregator.scss */
+/* line 268, ../../../compass/scss/components/_socialaggregator.scss */
 #body_content #isocontainer #isogrid .grid-item.h-sizer-2.no-button .containItem .contentBlock {
   position: static;
   background-color: transparent;
 }
-/* line 256, ../../../compass/scss/components/_socialaggregator.scss */
+/* line 272, ../../../compass/scss/components/_socialaggregator.scss */
 #body_content #isocontainer #isogrid .grid-item.h-sizer-2.no-button .containItem .contentBlock .contentInfo .button_wrap {
   right: 12px;
 }
-/* line 259, ../../../compass/scss/components/_socialaggregator.scss */
+/* line 275, ../../../compass/scss/components/_socialaggregator.scss */
 #body_content #isocontainer #isogrid .grid-item.h-sizer-2.no-button .containItem .contentBlock .contentInfo .button_wrap .button {
   position: relative;
 }
