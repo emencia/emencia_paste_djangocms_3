@@ -156,4 +156,61 @@ The first required action is the creation of a CMS page for the home page and al
 
 Available mods
 ==============
+
+.. document-mods::
+
+Changelogs
+==========
+
+Version 1.1.1 - 2014/11/07
+--------------------------
+
+* Update to ``zc.buildout==2.2.5``;
+* Update to ``buildout.recipe.uwsgi==0.0.24``;
+* Update to ``collective.recipe.cmd==0.9``;
+* Update to ``collective.recipe.template==1.11``;
+* Update to ``djangorecipe==1.10``;
+* Update to ``porticus==0.9.5``;
+* Add package ``cmsplugin-porticus==0.2`` in buildout config;
+* Remove dependancy for ``zc.buildout`` and ``zc.recipe.egg``;
+
+Version 1.1 - 2014/11/03
+------------------------
+
+* Update to ``zc.buildout==2.2.4`` to fix a bug introduced in 2.2.3;
+* Update to last ``bootstrap.py`` script;
+* Remove Foundation3 sources, CSS and bundles, they are not used anymore;
+* Move ckeditor and minimalist CSS to common SCSS sources with Foundation5;
+* Update Compass README;
+* Correct admin_style Compass config;
+* Add 'ar' country to the CSS flags;
+* Recompile all CSS in project's webapp_statics;
+* Changing ``assets.py`` to use nested bundles, so we can separate app bundles (foundation, royalslider, etc..) from the main bundles where we load the app bundles;
+* Main frontend's CSS & JS bundles are now called ``main.css`` and ``main.js`` not anymore ``app.***`` (yes we use the old Foundation3 ones that have been removed);
+
+Version 1.0.4 - 2014/11/03
+---------------------------
+
+Update mods doc
+
+Version 1.0.3 - 2014/11/03
+--------------------------
+
+Fix some app versions in version.cfg, fix app.js to use socialaggregator only if its lib is loaded.
+
+Version 1.0.2 - 2014/11/03
+--------------------------
+
+Remove all enabled mods because it's the template responsability to enabled them or not.
+
+Version 1.0.1 - 2014/11/03
+--------------------------
+
+Following repository renaming for a workaround with 'gp.vcsdevelop'.
+
+Version 1.0 - 2014/11/03
+------------------------
+
+First commit started from emencia-paste-djangocms-2 == 1.9.1 and merged with buildout_cms3 repository, bump to 1.0
+
 """

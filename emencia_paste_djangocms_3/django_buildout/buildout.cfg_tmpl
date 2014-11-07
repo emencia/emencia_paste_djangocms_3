@@ -5,22 +5,25 @@ eggs                 = Pillow
                        django
                        South
                        yuicompressor
+# accounts
+                       django-registration-redux
+# contact_form
+                       django-excel-response
+                       django-recaptcha
+                       emencia.django.countries
 # djangocms
                        django-cms
                        django-sekizai
                        django-reversion
                        djangocms-text-ckeditor
                        djangocms_snippet
-# accounts
-                       django-registration-redux
+# porticus
+                       porticus
+                       cmsplugin-porticus
 # zinnia
                        django-blog-zinnia
                        cmsplugin-zinnia
                        zinnia-wysiwyg-ckeditor
-# contact_form
-                       django-excel-response
-                       django-recaptcha
-                       emencia.django.countries
 # various
                        crispy-forms-foundation
                        django-admin-shortcuts
@@ -34,7 +37,6 @@ eggs                 = Pillow
                        emencia-django-slideshows
                        emencia-django-staticpages
                        emencia-django-socialaggregator
-                       porticus
 
 parts                = env
                        eggedpy

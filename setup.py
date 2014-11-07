@@ -24,8 +24,6 @@ setup(
         'Paste',
         'PasteDeploy',
         'PasteScript',
-        'zc.buildout',
-        'zc.recipe.egg',
     ],
     entry_points={
         'paste.paster_create_template': [
