@@ -33,6 +33,10 @@ class Django(Template):
     _template_dir = 'django_buildout'
     # Summary as it will be displayed with "--list-templates" paster argument
     summary = "DjangoCMS 3.x project"
+    # A list of symlinks to create in the post process
+    symlink_list = [
+        # ([Target to link], [Symlink file to create]),
+    ]
     # Questions to ask to enable some mods/options
     vars = [
         var('admin_style', 'Enable "djangocms_admin_style" (yes/no)', default='yes'),
@@ -64,7 +68,10 @@ class Django(Template):
         """
         if command.simulate:
             return
-
+        
+        # Find the 'project/' dir in the created paste project
+        project = join(getcwd(), vars['project'], 'project')
+        
         # 1. Mods
         mods = [var.name for var in self.vars if vars[var.name].lower() == 'yes']
         mods = set(mods)
@@ -83,14 +90,22 @@ class Django(Template):
         if 'contact_form' in mods:
             mods.add('crispy_forms')
             mods.add('recaptcha')
+        if 'cms' in mods:
+            # Mirroring Ckeditor JS overrides for the CKEditor cmsplugin that 
+            # use a different namespace than 'django-ckeditor'
+            self.symlink_list.append(('ckeditor', join(project, 'mods_available/ckeditor/static/djangocms_text_ckeditor')))
 
-        # Enable all selected mods
-        project = join(getcwd(), vars['project'], 'project')
+        # Enable all selected mods (it resumes to make a list of symlinks to 
+        # do in mods_enabled)
         for name in mods:
-            symlink(
+            self.symlink_list.append((
                 join('..', 'mods_available', name),
                 join(project, 'mods_enabled', name)
-            )
+            ))
+        
+        # Generic list items to make some useful symlinks like mods
+        for target, linkfile in self.symlink_list:
+            symlink(target, linkfile)
 
         # 2. Git initialization
         call = Caller(vars['project'])

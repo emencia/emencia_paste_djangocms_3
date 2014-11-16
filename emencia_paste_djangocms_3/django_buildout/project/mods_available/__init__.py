@@ -162,6 +162,12 @@ Available mods
 Changelogs
 ==========
 
+Version 1.1.2 - 2014/11/07
+--------------------------
+
+* Fix a bug with symlinks that was not packaged and so was missing from the installed egg, this close #1, thanks to @ilanouh;
+* Add missing gitignore rule to ignore debug_toolbar mod (it must never be installed from the start because it causes issues with cms and the syncdb command);
+
 Version 1.1.1 - 2014/11/07
 --------------------------
 
