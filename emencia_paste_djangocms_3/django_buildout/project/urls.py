@@ -6,6 +6,7 @@ import os
 # Import from django
 from django.conf.urls import patterns, include, url
 from django.conf import settings
+from django.views.generic import TemplateView
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -32,5 +33,7 @@ if settings.DEBUG:
     urlpatterns = patterns('',
         url(r'^media/(?P<path>.*)$', 'django.views.static.serve',
             {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
+        url(r'^500/$', TemplateView.as_view(template_name="500.html")),
+        url(r'^404/$', TemplateView.as_view(template_name="404.html")),
         url(r'', include('django.contrib.staticfiles.urls')),
     ) + urlpatterns
