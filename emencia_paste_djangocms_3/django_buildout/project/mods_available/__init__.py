@@ -162,7 +162,12 @@ Available mods
 Changelogs
 ==========
 
-Version 1.1.2 - 2014/11/07
+Version 1.1.3 - 2014/11/17
+--------------------------
+
+* Mount 500 and 404 page view in urls.py when debug mode is activated;
+
+Version 1.1.2 - 2014/11/16
 --------------------------
 
 * Fix a bug with symlinks that was not packaged and so was missing from the installed egg, this close #1, thanks to @ilanouh;
