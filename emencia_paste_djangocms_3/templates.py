@@ -29,21 +29,32 @@ class Django(Template):
     """
     Paste
     """
-    # Relative path to the directory containing all stuff to install
-    _template_dir = 'django_buildout'
     # Summary as it will be displayed with "--list-templates" paster argument
     summary = "DjangoCMS 3.x project"
+    # Relative path to the directory containing all stuff to install
+    _template_dir = 'django_buildout'
     # A list of symlinks to create in the post process
     symlink_list = [
         # ([Target to link], [Symlink file to create]),
     ]
-    # Questions to ask to enable some mods/options
+    # The base mods list to enable
+    mods_list = [
+        'admin_style',
+        'assets', # Used in templates
+        'ckeditor', # Used in djangocms and another apps
+        'cms',
+        'emencia_utils', # Useful utilities
+        'filebrowser', # Used in djangocms and another apps
+        'google_tools', # Used for almost customer projects
+        'site_metas', # Common sitemap for djangocms and another apps
+        'sitemap', # Common sitemap for djangocms and another apps
+    ]
+    # Questions to enable some optionnal mods
     vars = [
-        var('admin_style', 'Enable "djangocms_admin_style" (yes/no)', default='yes'),
-        var('accounts', 'Enable "accounts registration" (yes/no)', default='yes'),
+        var('accounts', 'Enable "Accounts registration" (yes/no)', default='yes'),
+        #var('cms', 'Enable "DjangoCMS" (yes/no)', default='yes'),
         var('contact_form', 'Enable "contact_form" (yes/no)', default='yes'),
         var('porticus', 'Enable "Porticus" (yes/no)', default='yes'),
-        var('site_metas', 'Enable "site_metas" (yes/no)', default='yes'),
         var('slideshows', 'Enable "Slideshows" (yes/no)', default='yes'),
         var('socialaggregator', 'Enable "Social Aggregator" (yes/no)', default='yes'),
         var('zinnia', 'Enable Zinnia (yes/no)', default='yes'),
@@ -51,16 +62,56 @@ class Django(Template):
 
     def pre(self, command, output_dir, kw):
         """
-        Prepare some context before install (will be accessible from paste templates)
+        Prepare some context before install
+        
+        Added kwargs in ``kw`` will be accessible into paste template files
         """
         # Build a random secret_key
-        chars = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
+        chars = u'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
         kw['secret_key'] = ''.join([ choice(chars) for i in range(50) ])
 
         # Paste version
-        kw['epaster_template_name'] = 'emencia-paste-djangocms-3'
+        kw['epaster_template_name'] = u'emencia-paste-djangocms-3'
         kw['epaster_template_version'] = template_version
 
+    def get_mods(self, project_path, vars):
+        """
+        Build the mod list to enable
+        """
+        # Start with answers from interactive command
+        mods = [var.name for var in self.vars if vars[var.name].lower() == 'yes']
+        mods = set(mods)
+
+        # Base mods
+        for name in self.mods_list:
+            mods.add(name)
+        
+        # Conditionnal mods dependancies
+        if 'accounts' in mods or 'contact_form' in mods:
+            mods.add('crispy_forms')
+            mods.add('recaptcha')
+        
+        return mods
+
+    def get_symlinks(self, project_path, vars, mods):
+        """
+        Build the symlink list to create (to enable mods and other stuff)
+        """
+        # Some additional symlinks
+        if 'cms' in mods:
+            # Mirroring Ckeditor JS overrides for the CKEditor cmsplugin that 
+            # use a different namespace than 'django-ckeditor'
+            self.symlink_list.append(('ckeditor', join(project_path, 'mods_available/ckeditor/static/djangocms_text_ckeditor')))
+
+        # Enable all selected mods (it resumes to make a list of symlinks to 
+        # do in mods_enabled)
+        for name in mods:
+            self.symlink_list.append((
+                join('..', 'mods_available', name),
+                join(project_path, 'mods_enabled', name)
+            ))
+        
+        return self.symlink_list
 
     def post(self, command, output_dir, vars):
         """
@@ -70,44 +121,17 @@ class Django(Template):
             return
         
         # Find the 'project/' dir in the created paste project
-        project = join(getcwd(), vars['project'], 'project')
+        project_path = join(getcwd(), vars['project'], 'project')
         
         # 1. Mods
-        mods = [var.name for var in self.vars if vars[var.name].lower() == 'yes']
-        mods = set(mods)
-
-        # Required
-        mods.add('emencia_utils')       # Useful utilities
-        mods.add('sitemap')   # Common sitemap for djangocms and other apps
-        mods.add('assets')       # Used in templates
-        mods.add('google_tools') # Used in templates
-        mods.add('cms')
-        mods.add('filebrowser') # Used in djangocms and zinnia
-        mods.add('ckeditor')     # Used in djangocms and zinnia
-        #mods.add('codemirror')   # Used in snippet cms plugin
+        mods = self.get_mods(project_path, vars)
         
-        # Conditionnal dependancies
-        if 'contact_form' in mods:
-            mods.add('crispy_forms')
-            mods.add('recaptcha')
-        if 'cms' in mods:
-            # Mirroring Ckeditor JS overrides for the CKEditor cmsplugin that 
-            # use a different namespace than 'django-ckeditor'
-            self.symlink_list.append(('ckeditor', join(project, 'mods_available/ckeditor/static/djangocms_text_ckeditor')))
-
-        # Enable all selected mods (it resumes to make a list of symlinks to 
-        # do in mods_enabled)
-        for name in mods:
-            self.symlink_list.append((
-                join('..', 'mods_available', name),
-                join(project, 'mods_enabled', name)
-            ))
-        
-        # Generic list items to make some useful symlinks like mods
-        for target, linkfile in self.symlink_list:
+        # 2. Create symlinks
+        for target, linkfile in self.get_symlinks(project_path, vars, mods):
+            print "* Symlink TO:", target, 'INTO:', linkfile
             symlink(target, linkfile)
 
-        # 2. Git initialization
+        # 3. Git first initialization
         call = Caller(vars['project'])
         call('git', 'init', '.')
         call('git', 'add', '.')
