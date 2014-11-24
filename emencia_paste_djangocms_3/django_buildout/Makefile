@@ -27,10 +27,9 @@ syncf5:
 	mkdir -p project/webapp_statics/js/foundation5/vendor
 	# Getting the real sources for updated vendor libs
 	cp foundation5/bower_components/fastclick/lib/fastclick.js project/webapp_statics/js/foundation5/vendor/
-	cp foundation5/bower_components/jquery/dist/jquery.js project/webapp_statics/js/foundation5/vendor/
+	cp foundation5/bower_components/foundation/js/vendor/jquery.js project/webapp_statics/js/foundation5/vendor/
 	cp foundation5/bower_components/jquery-placeholder/jquery.placeholder.js project/webapp_statics/js/foundation5/vendor/
 	cp foundation5/bower_components/jquery.cookie/jquery.cookie.js project/webapp_statics/js/foundation5/vendor/
-	cp foundation5/bower_components/lodash/dist/lodash.js project/webapp_statics/js/foundation5/vendor/
 	cp foundation5/bower_components/modernizr/modernizr.js project/webapp_statics/js/foundation5/vendor/
 
 assets:

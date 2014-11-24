@@ -6,8 +6,8 @@ A tiny script to rename filename prefix with dot in filename prefixed with
 Just execute it here, and the updated sources will be ready to be committed.
 """
 import os
-
-for root, dirs, files in os.walk(os.path.dirname(__file__)):
+print "Starting.."
+for root, dirs, files in os.walk("."):
     for name in files:
         if name.startswith('.'):
             current_path = os.path.join(root, name)
