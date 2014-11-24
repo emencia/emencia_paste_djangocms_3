@@ -162,14 +162,21 @@ Available mods
 Changelogs
 ==========
 
-<<<<<<< Updated upstream
+Version 1.2.1 - 2014/11/24
+--------------------------
+
+* Update to Foundation 5.4.7;
+
+Version 1.2 - 2014/11/19
+------------------------
+
+* Refactoring Template code to open a new way for a much modular behavior, should not break anything;
+
 Version 1.1.3 - 2014/11/17
 --------------------------
 
 * Mount 500 and 404 page view in urls.py when debug mode is activated;
 
-=======
->>>>>>> Stashed changes
 Version 1.1.2 - 2014/11/16
 --------------------------
 
