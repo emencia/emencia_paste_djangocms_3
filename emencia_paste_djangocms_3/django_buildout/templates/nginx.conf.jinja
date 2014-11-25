@@ -2,6 +2,8 @@ server {
     listen       80;
     server_name  {{ domain }}{% if other_domains %} {{ other_domains }}{% endif %};
     charset      utf-8;
+    # To limit upload to 50Mb
+    #client_max_body_size 50M;
 
     error_log  /var/log/nginx/{{ parts.VARS.NAME }}_error_log;
     access_log  /var/log/nginx/{{ parts.VARS.NAME }}_access_log;
@@ -21,8 +23,13 @@ server {
     }
 
     location /sitemap.xml {
-	alias {{ parts.buildout.directory }}/project/media/uploads/sitemap/sitemap.xml;
+        alias {{ parts.buildout.directory }}/project/media/uploads/sitemap/sitemap.xml;
     }
+
+    #location /protected_medias{
+    #    internal;
+    #    alias {{ parts.buildout.directory }}/project/protected_medias;
+    #}
 
     root {{ parts.buildout.directory }}/var/www;
     try_files $uri @uwsgi;

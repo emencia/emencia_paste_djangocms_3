@@ -37,6 +37,7 @@ eggs                 = Pillow
                        emencia-django-slideshows
                        emencia-django-staticpages
                        emencia-django-socialaggregator
+#                       django-sendfile
 
 parts                = env
                        eggedpy

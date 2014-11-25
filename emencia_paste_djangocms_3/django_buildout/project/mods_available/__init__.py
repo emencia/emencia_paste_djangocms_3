@@ -37,6 +37,7 @@
 .. _Sitemap framework: https://docs.djangoproject.com/en/1.5/ref/contrib/sitemaps/
 .. _djangocms-admin-style: https://github.com/divio/djangocms-admin-style
 .. _django-admin-shortcuts: https://github.com/alesdotio/django-admin-shortcuts/
+.. _django-sendfile: https://github.com/johnsensible/django-sendfile
 
 *******************
 DjangoCMS 3.x paste
@@ -161,6 +162,13 @@ Available mods
 
 Changelogs
 ==========
+
+Version 1.2.2 - 2014/11/24
+--------------------------
+
+* Add ``sendfile`` mod;
+* Add *client_max_body_size* sample directive usage in nginx template (but commented);
+* Add commented location */protected_medias* to demonstrate sendfile mod usage within nginx template;
 
 Version 1.2.1 - 2014/11/24
 --------------------------
