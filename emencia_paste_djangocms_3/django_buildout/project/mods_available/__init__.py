@@ -38,6 +38,8 @@
 .. _djangocms-admin-style: https://github.com/divio/djangocms-admin-style
 .. _django-admin-shortcuts: https://github.com/alesdotio/django-admin-shortcuts/
 .. _django-sendfile: https://github.com/johnsensible/django-sendfile
+.. _django-filer: https://github.com/stefanfoulis/django-filer
+.. _easy-thumbnails: https://github.com/SmileyChris/easy-thumbnails/
 
 *******************
 DjangoCMS 3.x paste
@@ -162,6 +164,18 @@ Available mods
 
 Changelogs
 ==========
+
+Version 1.2.3 - 2014/12/02
+--------------------------
+
+* Improve ``sitemap`` mod, more modular and usefull;
+* Add ``filer`` and ``thumbnails`` mod, ususally not used in our projects but it could be usefull for some specific goals;
+* Fix contact_form app that was missing its ``sitemap.py`` file;
+* Update to ``crispy-forms-foundation==0.4``;
+* DjangoCMS page templates has moved from ``project/templates/cms`` to ``project/templates/pages``, following a recommandation from DjangoCMS' documentation;
+* Add ``menu/menu_sidenav.html`` and ``pages/2_cols.autonav.html`` templates to have a template with deep menu for current root page;
+* Update to ``porticus==0.9.6``;
+* Update to ``emencia-django-slideshows==0.9.4``;
 
 Version 1.2.2 - 2014/11/24
 --------------------------

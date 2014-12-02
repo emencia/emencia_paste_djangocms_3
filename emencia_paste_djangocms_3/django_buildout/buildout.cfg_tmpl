@@ -17,6 +17,10 @@ eggs                 = Pillow
                        django-reversion
                        djangocms-text-ckeditor
                        djangocms_snippet
+# filer
+#                       django-filer
+#                       easy-thumbnails
+#                       cmsplugin-filer
 # porticus
                        porticus
                        cmsplugin-porticus

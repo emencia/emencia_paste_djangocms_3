@@ -50,7 +50,7 @@
                     <li{% block menu_item_contact %}{% endblock %}><a href="{% url 'contact_form' %}">{% trans "Contact" %}</a></li>
                 </ul>
                 <ul class="right">
-                    <li class="has-dropdown" id="auth-menu">
+                    {% comment %}<li class="has-dropdown" id="auth-menu">
                     {% if user.is_authenticated %}
                         <strong><i class="icon-user"></i> {{ user.username }}</strong>
                         <ul class="dropdown">
@@ -62,7 +62,7 @@
                             <li><a href="{% url 'registration_register' %}"><i class="icon-arrow-circle-o-down"></i> {% trans "Register" %}</a></li>
                         </ul>
                     {% endif %}
-                    </li>
+                    </li>{% endcomment %}
                 
                     <li class="divider"></li>
                     {% block menu_general_language %}<li class="niv1 has-dropdown languages" id="languageChooser">

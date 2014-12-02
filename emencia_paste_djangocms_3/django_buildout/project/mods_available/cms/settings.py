@@ -28,9 +28,10 @@ TEMPLATE_CONTEXT_PROCESSORS = add_to_tuple(TEMPLATE_CONTEXT_PROCESSORS,
 )
 
 CMS_TEMPLATES = (
-    ('cms/1_cols.html', '1 column'),
-    ('cms/2_cols.html', '2 columns'),
-    ('cms/3_cols.html', '3 columns'),
+    ('pages/1_cols.html', '1 column'),
+    ('pages/2_cols.html', '2 columns'),
+    ('pages/2_cols.autonav.html', '2 columns (1col with auto-nav)'),
+    ('pages/3_cols.html', '3 columns'),
 )
 
 # Uncomment this to enable per-object user permission
