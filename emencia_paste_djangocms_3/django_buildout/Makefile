@@ -42,11 +42,10 @@ scss:
 
 install:
 	virtualenv --no-site-packages --setuptools .
-	bin/pip install --upgrade setuptools
-	# Must upgrade PIP to 1.4 because of "nap"
-	bin/pip install --upgrade pip
+	bin/pip install 'setuptools==7.0'
+	bin/pip install 'pip==1.5.6'
 	mkdir -p eggs
-	bin/python bootstrap.py
+	bin/python bootstrap.py --setuptools-version=7.0 --config-file=buildout.cfg --version=2.2.5
 	bin/buildout -v
 	bin/django-instance syncdb --all
 	bin/django-instance migrate --fake
