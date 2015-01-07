@@ -128,21 +128,6 @@ recipe = zc.recipe.egg:script
 eggs = $${buildout:eggs}
 interpreter = eggedpy
 
-# Add some new locales to Django
-[patch-django-locale-part01]
-recipe               = emencia.recipe.patch
-egg                  = Django
-patches              = patches/django_locale_support_zh-hk.patch
-# Compile the new added locales from the patch
-# This MUST be executed only after the patch
-[patch-django-locale-part02]
-recipe               = collective.recipe.cmd
-on_install           = true
-on_update            = true
-cmds                 = pv=`python -c "import sys; print '.'.join([str(i) for i in sys.version_info[:2]])"`
-                       msgfmt --output-file=$${buildout:directory}/eggs/Django-$${versions:Django}-py$$pv.egg/django/conf/locale/zh_HK/LC_MESSAGES/django.mo $${buildout:directory}/eggs/Django-$${versions:Django}-py$$pv.egg/django/conf/locale/zh_HK/LC_MESSAGES/django.po
-
-
 #
 # Optional
 # (It is better to install these in the system, to save buildout time.)
