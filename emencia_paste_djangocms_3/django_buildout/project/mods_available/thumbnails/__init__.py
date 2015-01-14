@@ -1,5 +1,5 @@
 """
 Mod for `easy-thumbnails`_ a library to help for making thumbnails on the fly (or not).
 
-Commonly this is don't really usefull, as by default we enable Filebrowser that allready ship a thumbnail system.
+Generally **this is not recommended**, because by default we allready enable Filebrowser that allready ships a `thumbnail system <http://django-filebrowser.readthedocs.org/en/latest/versions.html>`_.
 """

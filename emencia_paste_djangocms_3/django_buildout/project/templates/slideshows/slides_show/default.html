@@ -1,4 +1,4 @@
-<ul id="slideshow-container" data-orbit>
+<ul id="slideshow-container-{{ slideshow_instance.id }}" data-orbit>
 {% for slide in slideshow_slides %}
     <li data-orbit-slide="item-{{ forloop.counter }}"{% if slide.url %} data-slide-url="{{ slide.url }}"{% endif %}>
         {% if slide.image %}<img src="{{ slide.image.url }}" alt="">{% endif %}
