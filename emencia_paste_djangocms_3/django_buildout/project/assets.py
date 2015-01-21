@@ -17,7 +17,7 @@ AVALAIBLE_BUNDLES = {
     'app_modernizr_js': Bundle(
         "js/foundation5/vendor/modernizr.js",
         filters='yui_js',
-        output='js/modernizr.min.js'
+        output='js/modernizr.%(version)s.js'
     ),
     
     # App bundle for Foundation5
@@ -46,7 +46,7 @@ AVALAIBLE_BUNDLES = {
         # For Orbit Slider (default used)
         "js/foundation5/foundation/foundation.orbit.js",
         filters='yui_js',
-        output='js/app_foundation5.min.js'
+        output='js/app_foundation5.%(version)s.js'
     ),
     
     # App bundle for RoyalSlider instead of Orbit (remember to enable its foundation 
@@ -68,7 +68,7 @@ AVALAIBLE_BUNDLES = {
         "js/royalslider/dev/modules/jquery.rs.bullets.js",
         "js/royalslider/dev/modules/jquery.rs.active-class.js",
         filters='yui_js',
-        output='js/app_royalslider.min.js'
+        output='js/app_royalslider.%(version)s.js'
     ),
     
     # App bundle for SocialAggregator
@@ -76,7 +76,7 @@ AVALAIBLE_BUNDLES = {
         "js/masonry/masonry.pkgd.js",
         "js/socialaggregator.js",
         filters='yui_js',
-        output='js/app_socialaggregator.min.js'
+        output='js/app_socialaggregator.%(version)s.js'
     ),
     
     # App bundle for Pikaday jquery plugin (a datepicker)
@@ -84,7 +84,7 @@ AVALAIBLE_BUNDLES = {
         "js/pikaday.js",
         "js/jquery/pikaday.jquery.js",
         filters='yui_js',
-        output='js/app_pikaday.min.js'
+        output='js/app_pikaday.%(version)s.js'
     ),
 }
     
@@ -98,7 +98,7 @@ AVALAIBLE_BUNDLES.update({
         'css/flags.css',
         'css/app.css',
         filters='yui_css',
-        output='css/app.min.css'
+        output='css/app.%(version)s.css'
     ),
     
     # Javascript bundle For Foundation5
@@ -113,7 +113,7 @@ AVALAIBLE_BUNDLES.update({
         "js/jquery/addons.js",
         "js/app.js",
         filters='yui_js',
-        output='js/app.min.js'
+        output='js/app.%(version)s.js'
     ),
 })
 
