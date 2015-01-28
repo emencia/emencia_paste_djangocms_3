@@ -10,7 +10,6 @@ help:
 	@echo
 	@echo "  assets -- to minify all assets and collect static files"
 	@echo "  scss -- to compile all SCSS stuffs with compass"
-	@echo "  syncf5 -- to synchronize needed Javascript files from foundation5 sources dir to the project static files"
 	@echo
 
 delpyc:
@@ -18,19 +17,6 @@ delpyc:
 
 clean: delpyc 
 	rm -Rf bin include eggs lib parts django-apps-src develop-eggs local .installed.cfg compass/.sass-cache project/webapp_statics/.webassets-cache
-
-syncf5:
-	rm -Rf project/webapp_statics/js/foundation5
-	cp -r foundation5/bower_components/foundation/js project/webapp_statics/js/foundation5
-	# Cleaning vendor libs
-	rm -Rf project/webapp_statics/js/foundation5/vendor
-	mkdir -p project/webapp_statics/js/foundation5/vendor
-	# Getting the real sources for updated vendor libs
-	cp foundation5/bower_components/fastclick/lib/fastclick.js project/webapp_statics/js/foundation5/vendor/
-	cp foundation5/bower_components/foundation/js/vendor/jquery.js project/webapp_statics/js/foundation5/vendor/
-	cp foundation5/bower_components/jquery-placeholder/jquery.placeholder.js project/webapp_statics/js/foundation5/vendor/
-	cp foundation5/bower_components/jquery.cookie/jquery.cookie.js project/webapp_statics/js/foundation5/vendor/
-	cp foundation5/bower_components/modernizr/modernizr.js project/webapp_statics/js/foundation5/vendor/
 
 assets:
 	django-instance collectstatic --pythonpath=project/ --noinput
