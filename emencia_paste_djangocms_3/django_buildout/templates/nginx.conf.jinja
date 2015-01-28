@@ -22,9 +22,9 @@ server {
         alias {{ parts.buildout.directory }}/project/static;
     }
 
-    location /sitemap.xml {
-        alias {{ parts.buildout.directory }}/project/media/uploads/sitemap/sitemap.xml;
-    }
+    #location /sitemap.xml {
+    #    alias {{ parts.buildout.directory }}/project/media/uploads/sitemap/sitemap.xml;
+    #}
 
     #location /protected_medias{
     #    internal;

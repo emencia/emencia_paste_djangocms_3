@@ -11,4 +11,4 @@ class ContactApphook(CMSApp):
     urls = ["project.contact_form.urls"]
 
 
-apphook_pool.register(BookingApphook)
+apphook_pool.register(ContactApphook)
