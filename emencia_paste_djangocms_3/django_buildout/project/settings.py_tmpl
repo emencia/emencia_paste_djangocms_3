@@ -14,7 +14,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    ('Emencia', 'sys@dummy.com'),
+    #('Emencia', 'PUT_ADMIN_EMAIL_HERE'),
 )
 
 MANAGERS = ADMINS
