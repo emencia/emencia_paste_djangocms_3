@@ -27,7 +27,7 @@ scss:
 	compass compile -c compass/config.rb compass/
 
 install:
-	virtualenv --no-site-packages --setuptools .
+	virtualenv --no-site-packages --setuptools --python python2 .
 	bin/pip install 'setuptools==7.0'
 	bin/pip install 'pip==1.5.6'
 	mkdir -p eggs
