@@ -51,7 +51,7 @@ parts                = env
                        drdump
 extensions           = gp.vcsdevelop
 develop-dir          = django-apps-src
-# Mirroring common variables to replace '-' with '_' in their names as the '-' 
+# Mirroring common variables to replace '-' with '_' in their names as the '-'
 # character is not allowed in Jinja2 templates
 eggs_directory       = $${:eggs-directory}
 
@@ -120,6 +120,8 @@ dump_dir             = dumps
 dependancies_map     = djangocms-3.json
 silent               = true
 django_instance      = $${buildout:directory}/bin/django-instance
+dump_other_apps      = true
+exclude_apps         = auth sessions contenttypes menus.cachekey filebrowser
 #extra_apps           = cmsplugin-various
 
 # Custom interpreter that know about installed eggs

@@ -15,7 +15,7 @@ help:
 delpyc:
 	find . -name "*\.pyc"|xargs rm -f
 
-clean: delpyc 
+clean: delpyc
 	rm -Rf bin include eggs lib parts django-apps-src develop-eggs local .installed.cfg compass/.sass-cache project/webapp_statics/.webassets-cache
 
 assets:
@@ -35,3 +35,13 @@ install:
 	bin/buildout -v
 	bin/django-instance syncdb --all
 	bin/django-instance migrate --fake
+
+tar_data:
+	bin/datadump
+	tar cvzf data_${project}.tar.gz dumps project/media/
+
+import_db:
+	bin/django-instance syncdb --all
+	bin/django-instance migrate --fake
+	bin/dataload
+
