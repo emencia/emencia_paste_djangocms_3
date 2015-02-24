@@ -14,7 +14,7 @@
 Install
 =======
 
-This project is made to be build with `buildout`_ system in a `virtualenv`_ environment. 
+This project is made to be build with `buildout`_ system in a `virtualenv`_ environment.
 
 So first you have to install `virtualenv`_ on your system, then you will need some `Devel libraries`_ on your system to compile some modules thereafter with `buildout`_.
 
@@ -26,23 +26,23 @@ Then you have to activate the project's virtual environment : ::
 
     source bin/activate
 
-For development environment you also have to do this :
-    
+For development environment you also have to do this : ::
+   
     buildout -c development.cfg
 
-Or for integration environment you also have to do this (note that you have to build the assets) :
-    
+Or for integration environment you also have to do this (note that you have to build the assets) : ::
+   
     buildout -c integration.cfg
     make assets
 
-Or for production environment you also have to do this :
-    
+Or for production environment you also have to do this : ::
+   
     buildout -c production.cfg
     make assets
 
 Buildout environment configs and Django settings
 ************************************************
-    
+   
 If you use the ``development.cfg`` or ``production.cfg`` config files with buildout, you will have to fill the appropriate settings.
 
 With ``development.cfg`` you should do a ``settings_development.py`` file like this : ::
