@@ -16,7 +16,8 @@
 	}
 	table {
 		margin: 0;
-		th { padding: 2px 5px !important; line-height: 13px; }
+		thead th { padding: 2px 5px !important; }
+		th { padding: 2px 5px; line-height: 13px; }
 		td { padding: 8px 5px; line-height: 13px; }
 	}
 }
@@ -65,7 +66,7 @@
 	.selector-filter { border: none; }
 	.selector-filter label { display: none; }
 	select[multiple] { border: 1px solid $line-color-light; border-left: none; border-right: none;
-		margin-bottom: 0; }
+		margin-bottom: 0; overflow-y: auto; }
 }
 
 // login
