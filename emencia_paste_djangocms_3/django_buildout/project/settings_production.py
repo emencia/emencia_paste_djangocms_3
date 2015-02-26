@@ -16,3 +16,9 @@ DATABASES = {
         'PORT': '',               # Set to empty string for default.
     }
 }
+
+RAVEN_CONFIG = {
+    'dsn': '',
+}
+
+INSTALLED_APPS += ('raven.contrib.django.raven_compat',)
