@@ -124,6 +124,11 @@ Available mods
 Changelogs
 ==========
 
+Version 1.3.7 - 2015/02/26
+--------------------------
+
+* Fix Makefile's 'install' action so this will works on all systems (OSX included) with a shell and Python2;
+
 Version 1.3.6 - 2015/02/25
 --------------------------
 
