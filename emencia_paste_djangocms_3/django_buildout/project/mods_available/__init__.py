@@ -124,6 +124,12 @@ Available mods
 Changelogs
 ==========
 
+version 1.3.8 - not released
+----------------------------
+
+* Add conf for sentry tracking in production env;
+* Fix bug into Makefile template;
+
 Version 1.3.7 - 2015/02/26
 --------------------------
 
