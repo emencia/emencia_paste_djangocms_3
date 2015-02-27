@@ -124,7 +124,7 @@ Available mods
 Changelogs
 ==========
 
-version 1.3.8 - not released
+version 1.3.8 - 2015/02/27
 ----------------------------
 
 * Add conf for sentry tracking in production env;
