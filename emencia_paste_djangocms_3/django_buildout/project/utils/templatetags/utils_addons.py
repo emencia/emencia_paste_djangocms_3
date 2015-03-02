@@ -6,7 +6,7 @@ from django import template
 
 register = template.Library()
 
-@register.filter(name='split', is_safe=True)
+@register.filter(name='split', is_safe=False)
 def split_string(value, arg=None):
     """
     A simple string splitter
