@@ -22,10 +22,12 @@ server {
         alias {{ parts.buildout.directory }}/project/static;
     }
 
-    #location /sitemap.xml {
-    #    alias {{ parts.buildout.directory }}/project/media/uploads/sitemap/sitemap.xml;
-    #}
-
+    {% if parts.VARS.SETTINGS == 'settings_integration' or parts.VARS.SETTINGS=='settings_production' %}
+    location /robots.txt {
+        alias {{ parts.buildout.directory }}/project/static/default_robots.txt;
+    }
+    
+    {% endif %}
     #location /protected_medias{
     #    internal;
     #    alias {{ parts.buildout.directory }}/project/protected_medias;

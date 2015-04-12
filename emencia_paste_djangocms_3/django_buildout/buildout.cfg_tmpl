@@ -29,6 +29,7 @@ eggs                 = Pillow
                        cmsplugin-zinnia
                        zinnia-wysiwyg-ckeditor
 # various
+                       django-mptt
                        crispy-forms-foundation
                        django-admin-shortcuts
                        django-debug-toolbar

@@ -45,7 +45,7 @@ Buildout environment configs and Django settings
    
 If you use the ``development.cfg`` or ``production.cfg`` config files with buildout, you will have to fill the appropriate settings.
 
-With ``development.cfg`` you should do a ``settings_development.py`` file like this : ::
+With ``development.cfg`` you have to edit ``project/settings_development.py`` like this : ::
 
     from project.settings import *
 
@@ -62,7 +62,7 @@ With ``development.cfg`` you should do a ``settings_development.py`` file like t
         }
     }
 
-With ``production.cfg`` you should do a ``settings_production.py`` file like this : ::
+With ``production.cfg`` you have to edit ``project/settings_production.py`` file like this : ::
 
     from project.settings import *
 
@@ -87,6 +87,10 @@ With ``production.cfg`` you should do a ``settings_production.py`` file like thi
             'PASSWORD': 'PASSWORD',
         }
     }
+
+These files allready exists with some settings commonly edited for their environment, so just fill them as you need.
+
+Never, ever, edit settings directly in the mods.
 
 Devel libraries
 ***************
